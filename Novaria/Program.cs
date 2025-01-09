@@ -2,12 +2,26 @@
 using Serilog.Events;
 using Serilog;
 
-namespace NTR
+namespace Novaria
 {
     internal class Program
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine(@"
+                                                                               
+                                                                               
+                                                                               
+ _   _   ___ __     __ _     ____   ___     _    
+| \ | | / _ \\ \   / // \   |  _ \ |_ _|   / \   
+|  \| || | | |\ \ / // _ \  | |_) | | |   / _ \  
+| |\  || |_| | \ V // ___ \ |  _ <  | |  / ___ \ 
+|_| \_| \___/   \_//_/   \_\|_| \_\|___|/_/   \_\ 
+                                                                               
+                                         
+
+
+");
             var config = new ConfigurationBuilder()
                 .SetBasePath(Path.GetDirectoryName(AppContext.BaseDirectory)!)
                 .AddJsonFile("appsettings.json")

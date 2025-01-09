@@ -3,7 +3,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Reflection;
 
-namespace NTR.GameServer.Protocol
+namespace Novaria.GameServer.Protocol
 {
     public class Connection
     {

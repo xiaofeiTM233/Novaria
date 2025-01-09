@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NTR.GameServer\NTR.GameServer.csproj" />
-    <ProjectReference Include="..\NTR.SDKServer\NTR.SDKServer.csproj" />
+    <ProjectReference Include="..\Novaria.GameServer\Novaria.GameServer.csproj" />
+    <ProjectReference Include="..\Novaria.SDKServer\Novaria.SDKServer.csproj" />
   </ItemGroup>
 
 </Project>

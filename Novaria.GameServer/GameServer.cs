@@ -2,9 +2,9 @@
 using System.Net;
 using Serilog;
 using System.Reflection;
-using NTR.GameServer.Protocol;
+using Novaria.GameServer.Protocol;
 
-namespace NTR.GameServer
+namespace Novaria.GameServer
 {
     public class GameServer 
     {

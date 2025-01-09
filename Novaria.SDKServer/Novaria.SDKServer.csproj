@@ -17,6 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NTR.Common\NTR.Common.csproj" />
+    <ProjectReference Include="..\Novaria.Common\Novaria.Common.csproj" />
   </ItemGroup>
 </Project>
