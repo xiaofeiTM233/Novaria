@@ -14,43 +14,104 @@ using Novaria.Common.Core;
 using Proto;
 using Google.Protobuf;
 using System.Collections;
+using System.Reflection;
+using System.Net.Sockets;
+//using Mono.Security.Cryptography;
 
 namespace Novaria.SDKServer.Controllers.Api
 {
     [Route("/agent-zone-1")]
     public class GatewayController : ControllerBase
     {
-        public int req_count;
+
+        private byte[] key3 = new byte[32];
 
         [HttpPost]
         public IActionResult PostRequest()
         {
-            //var memoryStream = new MemoryStream();
+            Log.Information("Received Gateway Post Request, Payload");
 
-            //Request.Body.CopyTo(memoryStream);
-            //byte[] requestBodyBytes = memoryStream.ToArray();
-            //Log.Information("Received Gateway Post Request, Payload: ");
-            //Utils.PrintByteArray(requestBodyBytes);
+            using var memoryStream = new MemoryStream();
+            Request.Body.CopyTo(memoryStream); // Copy request body to MemoryStream
+            byte[] rawPayload = memoryStream.ToArray();    // Get raw bytes from MemoryStream
 
-            Response.Headers.Add("Date", DateTime.UtcNow.ToString("R"));
-            Response.Headers.Add("Content-Length", "171");
-            Response.Headers.Add("Connection", "keep-alive");
+            Utils.PrintByteArray(rawPayload);
 
-            Response.Headers.Append("Set-Cookie", "SERVERID=eef797ff9d3671d413582d7dc2f39f29|1736422941|1736422941;Path=/");
-            Response.Headers.Append("Set-Cookie", "SERVERCORSID=eef797ff9d3671d413582d7dc2f39f29|1736422941|1736422941;Path=/;SameSite=None;Secure");
+            Packet requestPacket = ParseRequest(rawPayload);
 
-            string filePath = "E:\\documents\\Decompiling\\Extracted\\NOVA\\Novaria\\Novaria.SDKServer\\response1"; // Replace with the actual file path
+            Console.WriteLine();
 
-            if (req_count == 1)
+            Console.WriteLine("msgs body: ");
+            Utils.PrintByteArray(requestPacket.msgBody.ToArray());
+            Log.Information("Sucessfully parsed request packet, id: " + requestPacket.msgId);
+
+            byte[] responsePackeBytes = null;
+
+            switch (requestPacket.msgId)
             {
-                filePath = "E:\\documents\\Decompiling\\Extracted\\NOVA\\Novaria\\Novaria.SDKServer\\response2"; // Replace with the actual file path
+                case 4:
+                    {
+                        LoginReq loginreq = DecodePacket<LoginReq>(requestPacket);
+
+                        Log.Information("login_req received, contents: " + JsonSerializer.Serialize(loginreq));
+
+                        Log.Information("Building login resp...");
+
+                        LoginResp loginResp = new LoginResp()
+                        {
+                            Token = "seggstoken",
+                        };
+
+                        Packet responsePacket = new Packet()
+                        {
+                            msgId = 5,
+                            msgBody = loginResp.ToByteArray()
+                        };
+
+                        responsePackeBytes = BuildResponse(responsePacket);
+
+                        Log.Information("Sending login_resp packet: " + JsonSerializer.Serialize(loginResp));
+
+                        break;
+                    }
+                case 1001:
+                    {
+                        Nil nilReq = DecodePacket<Nil>(requestPacket);
+                        Log.Information("nil_req received, contents: " + JsonSerializer.Serialize(nilReq));
+
+                        Log.Information("Building nil resp...");
+
+                        Nil nilResp = new Nil()
+                        {
+
+                        };
+
+                        Packet responsePacket = new Packet()
+                        {
+                            msgId = 10001,
+                            msgBody = nilResp.ToByteArray()
+                        };
+
+                        responsePackeBytes = BuildResponse(responsePacket);
+
+                        Log.Information("Sending nil_resp packet: " + JsonSerializer.Serialize(nilResp));
+                        break;
+                    }
+                default:
+                    Log.Information("That packet has no handler!");
+                    break;
             }
 
-            byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+            if (responsePackeBytes == null)
+            {
+                throw new InvalidOperationException("something went wrong during building the response packet!");
+            }
 
-            Response.Body.WriteAsync(fileBytes, 0, fileBytes.Length);
 
-            req_count++;
+            Console.WriteLine("Built bytes: ");
+            Utils.PrintByteArray(responsePackeBytes);
+
+            Response.Body.Write(responsePackeBytes, 0, responsePackeBytes.Length);
 
             return new EmptyResult();
         }
@@ -75,7 +136,7 @@ namespace Novaria.SDKServer.Controllers.Api
 
             IKEResp ikeResponse = new IKEResp()
             {
-                PubKey = ByteString.CopyFrom(AeadTool.PS_PUBLIC_KEY),
+                PubKey = ByteString.CopyFrom(AeadTool.CLIENT_PUBLIC_KEY),
                 Token = AeadTool.TOKEN
             };
 
@@ -91,24 +152,8 @@ namespace Novaria.SDKServer.Controllers.Api
             Console.WriteLine("Built bytes: ");
             Utils.PrintByteArray(responsePayload);
 
-            //// Set response headers
-            //Response.Headers.Add("Date", DateTime.UtcNow.ToString("R"));
-            //Response.Headers.Add("Content-Length", "251");
-            //Response.Headers.Add("Connection", "keep-alive");
-
-            //// Set cookies
-            //Response.Headers.Append("Set-Cookie", "acw_tc=cb6df452e3196d1ec00d2fcdf7726b25ed2accbaa45e1066701a61d2da90b384;path=/;HttpOnly;Max-Age=1800");
-            //Response.Headers.Append("Set-Cookie", "SERVERID=eef797ff9d3671d413582d7dc2f39f29|1736422941|1736422941;Path=/");
-            //Response.Headers.Append("Set-Cookie", "SERVERCORSID=eef797ff9d3671d413582d7dc2f39f29|1736422941|1736422941;Path=/;SameSite=None;Secure");
-
-            //// Set binary content as the response body
-            //string filePath = "E:\\documents\\Decompiling\\Extracted\\NOVA\\Novaria\\Novaria.SDKServer\\options_response"; // Replace with the actual file path
-            //byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
-
-            //// Write bytes directly to response body
             Response.Body.Write(responsePayload, 0, responsePayload.Length);
 
-            //// Return no content since the body is written manually
             return new EmptyResult();
         }
 
@@ -140,6 +185,102 @@ namespace Novaria.SDKServer.Controllers.Api
             rawResponseWriter.Write(encryptedPacketData);
             
             return ((MemoryStream)rawResponseWriter.BaseStream).ToArray();
+        }
+
+        public static T DecodePacket<T>(Packet packet) where T : IMessage 
+        {
+            Assembly assembly = Assembly.GetAssembly(typeof(LoginReq));
+            Type targetType = typeof(T);
+
+            PropertyInfo parserProperty = targetType.GetProperty("Parser", BindingFlags.Static | BindingFlags.Public);
+            object parserInstance = parserProperty.GetValue(null);
+            MethodInfo parseFromMethod = parserInstance.GetType().GetMethod("ParseFrom", new[] { typeof(byte[]) });
+
+            IMessage parsedMessage = (IMessage)parseFromMethod.Invoke(parserInstance, new object[] { packet.msgBody });
+
+            if (parsedMessage == null)
+            {
+                throw new InvalidOperationException("Failed to parse message.");
+            }
+
+            return (T)parsedMessage;
+        }
+
+        public static byte[] BuildResponse(Packet packet)
+        {
+            BinaryWriter packetWriter = new BinaryWriter(new MemoryStream());
+
+            byte[] msgIdBytes = BitConverter.GetBytes(packet.msgId);
+
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse<byte>(msgIdBytes);
+            }
+
+            packetWriter.Write(msgIdBytes.AsSpan<byte>());
+            packetWriter.Write(packet.msgBody.AsSpan<byte>());
+
+            byte[] packetData = ((MemoryStream)packetWriter.BaseStream).ToArray();
+            Span<byte> encryptedPacketData = (new byte[packetData.Length + 16]).AsSpan();
+
+            AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.key3, AeadTool.PS_REQUEST_NONCE, packetData, false);
+
+            Console.WriteLine("build: encrypted data:");
+            Utils.PrintByteArray(encryptedPacketData.ToArray());
+
+            BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());
+            rawResponseWriter.Write(AeadTool.PS_REQUEST_NONCE);
+            rawResponseWriter.Write(encryptedPacketData);
+
+            return ((MemoryStream)rawResponseWriter.BaseStream).ToArray();
+        }
+
+        public static Packet ParseRequest(byte[] encryptedRawPayload)
+        {
+            BinaryReader reader = new BinaryReader(new MemoryStream(encryptedRawPayload));
+
+            byte[] nonceBytes = new byte[12]; // nonce 12 bytes length
+            reader.Read(nonceBytes);
+
+            int packetSize = encryptedRawPayload.Length - nonceBytes.Length; // skip nonce length (12)
+
+            byte[] packetBytes = new byte[packetSize];
+            reader.Read(packetBytes);
+
+            if (reader.BaseStream.Position != encryptedRawPayload.Length)
+            {
+                Log.Error("something went wrong, not all the bytes were read");
+                Log.Error("reader pos: " + reader.BaseStream.Position);
+                Log.Error("original len:" + encryptedRawPayload.Length);
+            }
+
+            Span<byte> decrypt_result = new Span<byte>(new byte[packetSize - 16]); // for chacha20 decrypt, the result is 16 bytes less than the input data
+
+            Span<byte> nonce = nonceBytes.AsSpan();
+            Span<byte> packet_data = packetBytes.AsSpan();
+
+            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.key3, nonce, packet_data, null);
+
+            if (!success)
+            {
+                Log.Error("something went wrong when chacha20 decrypting the data");
+            }
+
+            byte[] decrypted_bytes = decrypt_result.ToArray();
+
+            // might wanna use reader here
+            byte[] msgid_bytes = decrypted_bytes[10..12]; // two bytes before msg data is msgid
+            Array.Reverse<byte>(msgid_bytes); // should check BitConverter.IsLittleEndian (if true -> reverse, was true on my pc)
+
+            short msgId = BitConverter.ToInt16(msgid_bytes);
+
+            Packet packet = new Packet()
+            {
+                msgId = msgId,
+                msgBody = decrypted_bytes[12..], // 2 + 2 (seqid) + 8 (timestamp)
+            };
+
+            return packet;
         }
 
         // used for parsing ike requests in ps (or any request ig) client -> server

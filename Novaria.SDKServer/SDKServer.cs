@@ -107,6 +107,34 @@ namespace Novaria.SDKServer
             //Utils.PrintByteArray(Encoding.ASCII.GetBytes("Di9OhjFgkabvOO26XfjOzQ4/IcQ6yaFuK23tE2yw9Q7yYs5B53Zffs1e4DygW4IFgCFBtDKwAJtddxYmPfnjCfpCGk5UOAdLCH1/0NLHf+tl/Qc4GuG7jaK0Lcs75gHcSmRUkA"));
             //return;
 
+            byte[] firstReq = new byte[] { 90, 118, 89, 105, 76, 78, 54, 66, 118, 90, 97, 118, 69, 106, 227, 29, 185, 133, 2, 13, 102, 246, 198, 128, 110, 183, 97, 177, 211, 238, 130, 14, 32, 18, 36, 207, 124, 183, 86, 150, 155, 206, 31, 224, 74, 248, 142, 124, 168, 12, 179, 96, 157, 140, 21, 1, 223, 64, 54, 118, 137, 202, 12, 11, 229, 151, 82, 48, 229, 8, 170, 35, 236, 196, 247, 249, 235, 178, 227, 252, 146, 54, 17, 205, 93, 175, 7, 196, 123, 136, 204, 154, 60, 33, 179, 87, 206, 138, 76, 87, 64, 109, 147, 254, 148, 70, 26, 195, 231, 190, 186, 118, 218, 247, 13, 63, 240, 89, 41, 17, 56, 151, 5, 211, 4 };
+
+            Packet requestPacket =  GatewayController.ParseRequest(firstReq);
+            Console.WriteLine("---");
+            Utils.PrintByteArray(requestPacket.msgBody);
+            Console.WriteLine("---");
+            Log.Information("Sucessfully parsed request packet, id: " + requestPacket.msgId);
+            LoginReq loginreq = GatewayController.DecodePacket<LoginReq>(requestPacket);
+
+            Log.Information("login_req received, contents: " + JsonSerializer.Serialize(loginreq));
+
+            Log.Information("Building login resp...");
+
+            LoginResp loginResp = new LoginResp()
+            {
+                Token = "seggstoken",
+            };
+
+            Packet responsePacket = new Packet()
+            {
+                msgId = 5,
+                msgBody = loginResp.ToByteArray()
+            };
+
+            byte[] responsePackeBytes = GatewayController.BuildResponse(requestPacket);
+
+            Utils.PrintByteArray(responsePackeBytes);
+            //return;
             Log.Information("Starting SDK Server...");
             try
             {

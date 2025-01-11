@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+//using Mono.Security.Cryptography;
 using NSec.Cryptography;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -55,8 +56,10 @@ namespace Novaria.Common.Crypto
             // assume AesGcm not supported (frida log)
             associatedData[associatedData.Length - 1] = 1;
 
-
             //byte[] testkey = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t"); // apprently key different for pc
+
+            //[75,49,239,215,37,193,247,16,183,230,183,161,235,3,201,156,64,192,54,208,139,46,144,123,142,80,149,85,161,26,15,195]
+
             //Console.WriteLine("test key" + testkey.Length);
             //Utils.Utils.PrintByteArray(testkey);
             //Console.WriteLine();
@@ -67,6 +70,9 @@ namespace Novaria.Common.Crypto
 
             PS_REQUEST_NONCE[0] = 42;
             PS_REQUEST_NONCE[11] = 42;
+
+            key3[0] = 111;
+            key3[31] = 111;
         }
 
         public static bool Dencrypt_ChaCha20(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data, ReadOnlySpan<byte> associatedData)
