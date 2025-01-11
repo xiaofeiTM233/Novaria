@@ -39,20 +39,6 @@ namespace Novaria.SDKServer.CoNovariaollers
             Log.Information("Response bytes:");
             return File(response, "text/html");
         }
-
-        [HttpGet("{*catchAll}")]
-        public IResult CatchAllGet(string catchAll)
-        {
-            Log.Information($"HttpGet: {catchAll}");
-            return Results.Empty;
-        }
-
-        [HttpPost("{*catchAll}")]
-        public IResult CatchAllPost(string catchAll)
-        {
-            Log.Information($"HttpGet: {catchAll}");
-            return Results.Empty;
-        }
     }
 }
 
