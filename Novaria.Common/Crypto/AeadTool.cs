@@ -14,6 +14,8 @@ namespace Novaria.Common.Crypto
         public static readonly byte[] DEFAULT_SERVERLIST_KEY;
         public static readonly byte[] DEFAULT_SERVERLIST_IV;
 
+        public static readonly byte[] FIRST_IKE_KEY;
+
         public static readonly byte[] associatedData;
 
         public static byte[] GenerateRandomPublicKey()
@@ -40,24 +42,33 @@ namespace Novaria.Common.Crypto
         {
             DEFAULT_SERVERLIST_KEY = new byte[] { 74, 72, 42, 67, 80, 51, 50, 57, 89, 120, 111, 103, 81, 74, 69, 120 };
             DEFAULT_SERVERLIST_IV = new byte[] { 225, 92, 61, 72, 193, 89, 3, 64, 50, 61, 50, 145, 59, 128, 99, 72 };
-
+            FIRST_IKE_KEY = new byte[] { 51, 76, 83, 57, 38, 111, 89, 100, 115, 112, 94, 53, 119, 105, 56, 38, 90, 120, 67, 35, 99, 55, 77, 90, 103, 55, 51, 104, 98, 69, 68, 119 };
             key3 = new byte[32];
             associatedData = new byte[13];
 
             // assume AesGcm not supported (frida log)
             associatedData[associatedData.Length - 1] = 1;
+
+
+            //byte[] testkey = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t");
+            //Console.WriteLine("test key" + testkey.Length);
+            //Utils.Utils.PrintByteArray(testkey);
+            //Console.WriteLine();
+            //testkey.CopyTo(FIRST_IKE_KEY, 0);
         }
 
-        public static bool Dencrypt_ChaCha20(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data)
+        public static bool Dencrypt_ChaCha20(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data, ReadOnlySpan<byte> associatedData)
         {
             Algorithm chaCha20Poly = AeadAlgorithm.ChaCha20Poly1305;
             KeyBlobFormat keyBlobFormat = KeyBlobFormat.RawSymmetricKey;
             KeyCreationParameters keyCreationParameters = default(KeyCreationParameters);
             bool result2;
+            //System.ArgumentException: 'The length of the plaintext must be equal to the length of the ciphertext minus the tag size. (Parameter 
             using (Key key2 = Key.Import(chaCha20Poly, key, keyBlobFormat, ref keyCreationParameters))
             {
-                result2 = AeadAlgorithm.ChaCha20Poly1305.Decrypt(key2, nonce, null, data, result);
+                result2 = AeadAlgorithm.ChaCha20Poly1305.Decrypt(key2, nonce, associatedData, data, result);
             }
+
             return result2;
         }
 

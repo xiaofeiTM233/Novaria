@@ -9,31 +9,6 @@ namespace Novaria.Common.Utils
 {
     public static class Utils
     {
-
-        public static void SaveFileDescriptorProtoToFile(FileDescriptorProto fileDescriptorProto, string outputDirectory)
-        {
-            if (fileDescriptorProto == null)
-            {
-                throw new ArgumentNullException(nameof(fileDescriptorProto));
-            }
-
-            if (string.IsNullOrEmpty(outputDirectory))
-            {
-                throw new ArgumentException("Output directory cannot be null or empty", nameof(outputDirectory));
-            }
-
-            string protoName = fileDescriptorProto.Name ?? "unknown.proto";
-            string protoContent = fileDescriptorProto.ToString();
-            
-            string outputPath = Path.Combine(outputDirectory, protoName);
-
-            Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
-
-            File.WriteAllText(outputPath, protoContent);
-
-            Console.WriteLine($"Saved {protoName} to {outputPath}");
-        }
-
         public static void PrintByteArray(byte[] byteArray)
         {
             if (byteArray == null || byteArray.Length == 0)
