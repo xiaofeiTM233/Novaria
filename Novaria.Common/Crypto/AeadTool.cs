@@ -11,6 +11,12 @@ namespace Novaria.Common.Crypto
 {
     public static class AeadTool
     {
+        public static byte[] CLIENT_PUBLIC_KEY { get; set; }
+
+        public static byte[] PS_REQUEST_NONCE = new byte[12];
+        public static byte[] PS_PUBLIC_KEY = new byte[96]; // this is my public key, [69, 0, 0, 0, ...., 0, 0, 0, 69], 69s so i actually know i sent it correctly in frida log
+        public static string TOKEN = "seggs"; // hardcoded for now
+
         public static readonly byte[] DEFAULT_SERVERLIST_KEY;
         public static readonly byte[] DEFAULT_SERVERLIST_IV;
 
@@ -50,11 +56,17 @@ namespace Novaria.Common.Crypto
             associatedData[associatedData.Length - 1] = 1;
 
 
-            //byte[] testkey = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t");
+            //byte[] testkey = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t"); // apprently key different for pc
             //Console.WriteLine("test key" + testkey.Length);
             //Utils.Utils.PrintByteArray(testkey);
             //Console.WriteLine();
             //testkey.CopyTo(FIRST_IKE_KEY, 0);
+
+            PS_PUBLIC_KEY[0] = 69;
+            PS_PUBLIC_KEY[95] = 69;
+
+            PS_REQUEST_NONCE[0] = 42;
+            PS_REQUEST_NONCE[11] = 42;
         }
 
         public static bool Dencrypt_ChaCha20(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data, ReadOnlySpan<byte> associatedData)

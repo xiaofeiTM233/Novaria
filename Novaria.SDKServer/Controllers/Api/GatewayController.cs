@@ -10,6 +10,10 @@ using System.IO;
 using System.Numerics;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Http;
+using Novaria.Common.Core;
+using Proto;
+using Google.Protobuf;
+using System.Collections;
 
 namespace Novaria.SDKServer.Controllers.Api
 {
@@ -59,11 +63,33 @@ namespace Novaria.SDKServer.Controllers.Api
             // store key which is used in AeadTool
             using var memoryStream = new MemoryStream();
             Request.Body.CopyTo(memoryStream); // Copy request body to MemoryStream
-            byte[] rawBytes = memoryStream.ToArray();    // Get raw bytes from MemoryStream
+            byte[] rawPayload = memoryStream.ToArray();    // Get raw bytes from MemoryStream
 
-            Utils.PrintByteArray(rawBytes);
-            //byte[] msgId = BitConverter.GetBytes(msg.msgId);
+            //Utils.PrintByteArray(rawPayload);
 
+            IKEReq ikeRequest = ParseIkeRequest(rawPayload);
+            
+            Console.WriteLine("Decoded Packet: " + JsonSerializer.Serialize(ikeRequest));
+
+            AeadTool.CLIENT_PUBLIC_KEY = ikeRequest.PubKey.ToArray();
+
+            IKEResp ikeResponse = new IKEResp()
+            {
+                PubKey = ByteString.CopyFrom(AeadTool.PS_PUBLIC_KEY),
+                Token = AeadTool.TOKEN
+            };
+
+            Packet ikePacket = new Packet()
+            {
+                msgId = 2,
+                msgBody = ikeResponse.ToByteArray()
+            };
+
+            var responsePayload = BuildIkeResponse(ikePacket);
+
+            Console.WriteLine("Sending ike response packet: " + JsonSerializer.Serialize(ikeResponse));
+            Console.WriteLine("Built bytes: ");
+            Utils.PrintByteArray(responsePayload);
 
             //// Set response headers
             //Response.Headers.Add("Date", DateTime.UtcNow.ToString("R"));
@@ -80,12 +106,181 @@ namespace Novaria.SDKServer.Controllers.Api
             //byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
 
             //// Write bytes directly to response body
-            //Response.Body.WriteAsync(fileBytes, 0, fileBytes.Length);
+            Response.Body.Write(responsePayload, 0, responsePayload.Length);
 
             //// Return no content since the body is written manually
             return new EmptyResult();
         }
 
+        public static byte[] BuildIkeResponse(Packet packet)
+        {
+            BinaryWriter packetWriter = new BinaryWriter(new MemoryStream());
+
+            byte[] msgIdBytes = BitConverter.GetBytes(packet.msgId);
+
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse<byte>(msgIdBytes);
+            }
+
+            packetWriter.Write(msgIdBytes.AsSpan<byte>());
+            packetWriter.Write(packet.msgBody.AsSpan<byte>());
+
+
+            byte[] packetData = ((MemoryStream)packetWriter.BaseStream).ToArray();
+            Span<byte> encryptedPacketData = (new byte[packetData.Length + 16]).AsSpan();
+
+            AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.FIRST_IKE_KEY, AeadTool.PS_REQUEST_NONCE, packetData, false);
+
+            Console.WriteLine("build: encrypted data:");
+            Utils.PrintByteArray(encryptedPacketData.ToArray());
+
+            BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());
+            rawResponseWriter.Write(AeadTool.PS_REQUEST_NONCE);
+            rawResponseWriter.Write(encryptedPacketData);
+            
+            return ((MemoryStream)rawResponseWriter.BaseStream).ToArray();
+        }
+
+        // used for parsing ike requests in ps (or any request ig) client -> server
+        public static IKEReq ParseIkeRequest(byte[] encryptedRawPayload)
+        {
+            bool flag = true; // original this flag is: flag = msg.msgId == 1, so true
+
+            BinaryReader reader = new BinaryReader(new MemoryStream(encryptedRawPayload));
+
+            byte[] nonceBytes = new byte[12]; // nonce 12 bytes length
+            reader.Read(nonceBytes);
+
+            byte[] aeadBytes = new byte[1]; // aead byte is 1 byte, original field in AeadTool
+            int packetSize = encryptedRawPayload.Length - nonceBytes.Length; // skip nonce length (12)
+
+            if (flag)
+            {
+                reader.Read(aeadBytes); // read to skip in memory, idk whats the use for this
+                packetSize--; // skip in payload
+            }
+
+            byte[] packetBytes = new byte[packetSize];
+            reader.Read(packetBytes);
+
+            if (reader.BaseStream.Position != encryptedRawPayload.Length)
+            {
+                Log.Error("something went wrong, not all the bytes were read");
+                Log.Error("reader pos: " + reader.BaseStream.Position);
+                Log.Error("original len:" + encryptedRawPayload.Length);
+            }
+
+            Span<byte> decrypt_result = new Span<byte>(new byte[packetSize - 16]); // for chacha20 decrypt, the result is 16 bytes less than the input data
+
+            Span<byte> nonce = nonceBytes.AsSpan();
+            Span<byte> packet_data = packetBytes.AsSpan();
+
+            //Console.WriteLine($"Nonce[{nonce.Length}]");
+            //Utils.PrintByteArray(nonce.ToArray());
+
+            //Console.WriteLine($"packet_data[{packet_data.Length}]: ");
+            //Utils.PrintByteArray(packet_data.ToArray());
+
+            //Console.WriteLine($"key[{AeadTool.FIRST_IKE_KEY.Length}]: ");
+            //Utils.PrintByteArray(AeadTool.FIRST_IKE_KEY.ToArray());
+
+            //Console.WriteLine($"Decrypted bytes[{decrypt_result.Length}]: ");
+
+            byte[] associateData = new byte[13]; // this is needed for req decrypt (size: nonce(12) + 1)
+
+            nonceBytes.CopyTo(associateData, 0); // associateData: [nonce, 1], 1 means AesGcm not supported
+            associateData[associateData.Length - 1] = 1;
+
+            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.FIRST_IKE_KEY, nonce, packet_data, associateData);
+
+            if (!success)
+            {
+                Log.Error("something went wrong when chacha20 decrypting the data");
+            }
+
+            //Utils.PrintByteArray(decrypt_result.ToArray());
+
+            byte[] decrypted_bytes = decrypt_result.ToArray();
+            //Utils.PrintByteArray(decrypted_bytes);
+
+            byte[] msgid_bytes = decrypted_bytes[..2]; // first two bytes is msgid
+            Array.Reverse<byte>(msgid_bytes); // should check BitConverter.IsLittleEndian (if true -> reverse, was true on my pc)
+
+            short msgId = BitConverter.ToInt16(msgid_bytes);
+
+            Packet packet = new Packet()
+            {
+                msgId = msgId,
+                msgBody = decrypted_bytes[2..],
+            };
+
+            //Console.WriteLine("msgid: " + msgId);
+            //Console.WriteLine("msgBody length: " + packet.msgBody.Length);
+
+            IKEReq ike_request = IKEReq.Parser.ParseFrom(packet.msgBody);
+
+            return ike_request;
+        }
+
+        // used to parse offical pcaps, server -> client
+        public static IKEResp ParseIkeResponse(byte[] encryptedRawPayload)
+        {
+            bool flag = false; // false for this pcap ike resp
+
+            BinaryReader reader = new BinaryReader(new MemoryStream(encryptedRawPayload));
+
+            byte[] nonceBytes = new byte[12]; // nonce 12 bytes length
+            reader.Read(nonceBytes);
+
+            byte[] aeadBytes = new byte[1]; // aead byte is 1 byte, original field in AeadTool
+            int packetSize = encryptedRawPayload.Length - nonceBytes.Length; // skip nonce length (12)
+
+            if (flag)
+            {
+                reader.Read(aeadBytes); // read to skip in memory, idk whats the use for this
+                packetSize--; // skip in payload
+            }
+
+            byte[] packetBytes = new byte[packetSize];
+            reader.Read(packetBytes);
+
+            if (reader.BaseStream.Position != encryptedRawPayload.Length)
+            {
+                Log.Error("something went wrong, not all the bytes were read");
+                Log.Error("reader pos: " + reader.BaseStream.Position);
+                Log.Error("original len:" + encryptedRawPayload.Length);
+            }
+
+            Span<byte> decrypt_result = new Span<byte>(new byte[packetSize - 16]); // for chacha20, the result is 16 bytes less than the input data
+
+            Span<byte> nonce = nonceBytes.AsSpan();
+            Span<byte> packet_data = packetBytes.AsSpan();
+
+            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.FIRST_IKE_KEY, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
+
+            if (!success)
+            {
+                Log.Error("something went wrong when chacha20 decrypting the data");
+            }
+
+
+            byte[] decrypted_bytes = decrypt_result.ToArray();
+            byte[] msgid_bytes = decrypted_bytes[..2]; // first two bytes is msgid
+            Array.Reverse<byte>(msgid_bytes); // should check BitConverter.IsLittleEndian (if true -> reverse, was true on my pc)
+
+            short msgId = BitConverter.ToInt16(msgid_bytes);
+
+            Packet packet = new Packet()
+            {
+                msgId = msgId,
+                msgBody = decrypted_bytes[2..],
+            };
+
+            IKEResp ike_response = IKEResp.Parser.ParseFrom(packet.msgBody);
+
+            return ike_response;
+        }
         //private DiffieHellmanManaged SendKey;
 
         //// put in connection prob
