@@ -17,6 +17,7 @@ using System.IO;
 using NSec.Cryptography;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Novaria.SDKServer.Controllers.Api;
+using Novaria.SDKServer.Controllers.Api.ProtocolHandlers;
 
 namespace Novaria.SDKServer
 {
@@ -107,33 +108,42 @@ namespace Novaria.SDKServer
             //Utils.PrintByteArray(Encoding.ASCII.GetBytes("Di9OhjFgkabvOO26XfjOzQ4/IcQ6yaFuK23tE2yw9Q7yYs5B53Zffs1e4DygW4IFgCFBtDKwAJtddxYmPfnjCfpCGk5UOAdLCH1/0NLHf+tl/Qc4GuG7jaK0Lcs75gHcSmRUkA"));
             //return;
 
-            byte[] firstReq = new byte[] { 90, 118, 89, 105, 76, 78, 54, 66, 118, 90, 97, 118, 69, 106, 227, 29, 185, 133, 2, 13, 102, 246, 198, 128, 110, 183, 97, 177, 211, 238, 130, 14, 32, 18, 36, 207, 124, 183, 86, 150, 155, 206, 31, 224, 74, 248, 142, 124, 168, 12, 179, 96, 157, 140, 21, 1, 223, 64, 54, 118, 137, 202, 12, 11, 229, 151, 82, 48, 229, 8, 170, 35, 236, 196, 247, 249, 235, 178, 227, 252, 146, 54, 17, 205, 93, 175, 7, 196, 123, 136, 204, 154, 60, 33, 179, 87, 206, 138, 76, 87, 64, 109, 147, 254, 148, 70, 26, 195, 231, 190, 186, 118, 218, 247, 13, 63, 240, 89, 41, 17, 56, 151, 5, 211, 4 };
 
-            Packet requestPacket =  GatewayController.ParseRequest(firstReq);
-            Console.WriteLine("---");
-            Utils.PrintByteArray(requestPacket.msgBody);
-            Console.WriteLine("---");
-            Log.Information("Sucessfully parsed request packet, id: " + requestPacket.msgId);
-            LoginReq loginreq = GatewayController.DecodePacket<LoginReq>(requestPacket);
+            //DiffieHellman diffieHellman = new DiffieHellman();
+            //AeadTool.CLIENT_PUBLIC_KEY = new byte[] { 151, 9, 53, 80, 250, 198, 4, 44, 108, 79, 114, 12, 63, 205, 144, 209, 138, 249, 76, 59, 211, 197, 174, 161, 78, 160, 16, 207, 169, 191, 75, 62, 211, 60, 248, 150, 194, 187, 98, 205, 240, 94, 229, 220, 213, 80, 209, 248, 240, 233, 81, 202, 102, 219, 205, 218, 235, 231, 180, 151, 148, 128, 206, 225, 244, 53, 207, 81, 136, 29, 113, 12, 51, 35, 193, 207, 174, 213, 19, 223, 29, 97, 200, 115, 243, 241, 88, 200, 255, 172, 225, 108, 132, 68, 150, 36 };
+            //byte[] calculatedKey = diffieHellman.CalculateSharedSecret(AeadTool.CLIENT_PUBLIC_KEY);
 
-            Log.Information("login_req received, contents: " + JsonSerializer.Serialize(loginreq));
+            //Console.WriteLine("CALCULATED KEY: ");
+            //Utils.PrintByteArray(calculatedKey);
 
-            Log.Information("Building login resp...");
+            //return;
+            //byte[] firstReq = new byte[] { 90, 118, 89, 105, 76, 78, 54, 66, 118, 90, 97, 118, 69, 106, 227, 29, 185, 133, 2, 13, 102, 246, 198, 128, 110, 183, 97, 177, 211, 238, 130, 14, 32, 18, 36, 207, 124, 183, 86, 150, 155, 206, 31, 224, 74, 248, 142, 124, 168, 12, 179, 96, 157, 140, 21, 1, 223, 64, 54, 118, 137, 202, 12, 11, 229, 151, 82, 48, 229, 8, 170, 35, 236, 196, 247, 249, 235, 178, 227, 252, 146, 54, 17, 205, 93, 175, 7, 196, 123, 136, 204, 154, 60, 33, 179, 87, 206, 138, 76, 87, 64, 109, 147, 254, 148, 70, 26, 195, 231, 190, 186, 118, 218, 247, 13, 63, 240, 89, 41, 17, 56, 151, 5, 211, 4 };
 
-            LoginResp loginResp = new LoginResp()
-            {
-                Token = "seggstoken",
-            };
+            //Packet requestPacket =  GatewayController.ParseRequest(firstReq);
+            //Console.WriteLine("---");
+            //Utils.PrintByteArray(requestPacket.msgBody);
+            //Console.WriteLine("---");
+            //Log.Information("Sucessfully parsed request packet, id: " + requestPacket.msgId);
+            //LoginReq loginreq = GatewayController.DecodePacket<LoginReq>(requestPacket);
 
-            Packet responsePacket = new Packet()
-            {
-                msgId = 5,
-                msgBody = loginResp.ToByteArray()
-            };
+            //Log.Information("login_req received, contents: " + JsonSerializer.Serialize(loginreq));
 
-            byte[] responsePackeBytes = GatewayController.BuildResponse(requestPacket);
+            //Log.Information("Building login resp...");
 
-            Utils.PrintByteArray(responsePackeBytes);
+            //LoginResp loginResp = new LoginResp()
+            //{
+            //    Token = "seggstoken",
+            //};
+
+            //Packet responsePacket = new Packet()
+            //{
+            //    msgId = 5,
+            //    msgBody = loginResp.ToByteArray()
+            //};
+
+            //byte[] responsePackeBytes = GatewayController.BuildResponse(requestPacket);
+
+            //Utils.PrintByteArray(responsePackeBytes);
             //return;
             Log.Information("Starting SDK Server...");
             try
@@ -146,7 +156,18 @@ namespace Novaria.SDKServer
                 builder.Host.UseSerilog();
 
                 builder.Services.AddControllers();
+                builder.Services.AddProtocolHandlerFactory();
                 builder.Services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(SDKServer)));
+
+                // Add all Handler Groups
+                var handlerGroups = Assembly.GetAssembly(typeof(ProtocolHandlerFactory))
+                    .GetTypes()
+                    .Where(t => t.IsSubclassOf(typeof(ProtocolHandlerBase)));
+
+                foreach (var handlerGroup in handlerGroups)
+                {
+                    builder.Services.AddProtocolHandlerGroupByType(handlerGroup);
+                }
 
                 var app = builder.Build();
 

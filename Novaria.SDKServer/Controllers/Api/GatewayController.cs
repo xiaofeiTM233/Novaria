@@ -16,6 +16,7 @@ using Google.Protobuf;
 using System.Collections;
 using System.Reflection;
 using System.Net.Sockets;
+using Novaria.SDKServer.Controllers.Api.ProtocolHandlers;
 //using Mono.Security.Cryptography;
 
 namespace Novaria.SDKServer.Controllers.Api
@@ -23,8 +24,14 @@ namespace Novaria.SDKServer.Controllers.Api
     [Route("/agent-zone-1")]
     public class GatewayController : ControllerBase
     {
+        private readonly IProtocolHandlerFactory protocolHandlerFactory;
+        private readonly ILogger<GatewayController> logger;
 
-        private byte[] key3 = new byte[32];
+        public GatewayController(IProtocolHandlerFactory _protocolHandlerFactory, ILogger<GatewayController> _logger)
+        {
+            protocolHandlerFactory = _protocolHandlerFactory;
+            logger = _logger;
+        }
 
         [HttpPost]
         public IActionResult PostRequest()
@@ -39,77 +46,59 @@ namespace Novaria.SDKServer.Controllers.Api
 
             Packet requestPacket = ParseRequest(rawPayload);
 
-            Console.WriteLine();
+            Log.Information("");
 
-            Console.WriteLine("msgs body: ");
+            Log.Information("msgs body: ");
             Utils.PrintByteArray(requestPacket.msgBody.ToArray());
             Log.Information("Sucessfully parsed request packet, id: " + requestPacket.msgId);
 
             byte[] responsePackeBytes = null;
 
-            switch (requestPacket.msgId)
+            NetMsgId msgid = (NetMsgId)requestPacket.msgId;
+            Log.Information("Received protocol msgid: " + msgid);
+
+            Type requestType = protocolHandlerFactory.GetRequestPacketTypeByProtocol(msgid);
+
+            if (requestType is null)
             {
-                case 4:
-                    {
-                        LoginReq loginreq = DecodePacket<LoginReq>(requestPacket);
-
-                        Log.Information("login_req received, contents: " + JsonSerializer.Serialize(loginreq));
-
-                        Log.Information("Building login resp...");
-
-                        LoginResp loginResp = new LoginResp()
-                        {
-                            Token = "seggstoken",
-                        };
-
-                        Packet responsePacket = new Packet()
-                        {
-                            msgId = 5,
-                            msgBody = loginResp.ToByteArray()
-                        };
-
-                        responsePackeBytes = BuildResponse(responsePacket);
-
-                        Log.Information("Sending login_resp packet: " + JsonSerializer.Serialize(loginResp));
-
-                        break;
-                    }
-                case 1001:
-                    {
-                        Nil nilReq = DecodePacket<Nil>(requestPacket);
-                        Log.Information("nil_req received, contents: " + JsonSerializer.Serialize(nilReq));
-
-                        Log.Information("Building nil resp...");
-
-                        Nil nilResp = new Nil()
-                        {
-
-                        };
-
-                        Packet responsePacket = new Packet()
-                        {
-                            msgId = 10001,
-                            msgBody = nilResp.ToByteArray()
-                        };
-
-                        responsePackeBytes = BuildResponse(responsePacket);
-
-                        Log.Information("Sending nil_resp packet: " + JsonSerializer.Serialize(nilResp));
-                        break;
-                    }
-                default:
-                    Log.Information("That packet has no handler!");
-                    break;
+                Log.Error($"MsgId {msgid} doesn't have corresponding type registered");
+                throw new InvalidDataException("invalid protocol msgid");
             }
+
+            IMessage decodedPayload = DecodePacket(requestType, requestPacket);
+
+            // originally i returned a IMessage from handlers, 
+            // but since in this game apprently one req can return diff resp msgids thus they can not be hardcoded in the packet or increments,
+            // so we just return packet, bit tedius but inside handlers will determine the response msgid
+            var responsePacketObj = protocolHandlerFactory.Invoke(msgid, decodedPayload);
+
+            if (responsePacketObj is null)
+            {
+                Log.Error($"Protocol {msgid}: {ProtocolHandlerFactory.NetMsgIdToNameMappings[(short)msgid]} is unimplemented and left unhandled");
+
+                //throw new ArgumentNullException("handler does not exist");
+                return new EmptyResult();
+            }
+
+            // -- changed to manually set in handler
+            // succeed_ack = req_msg_id + 1, failed_ack = req_msg_id - 1, for special stuff like gm its -1/-2
+            //NetMsgId respMsgId = msgid + 1; // this is probably good for most cases but idk if theres any that doesnt follow this
+            Packet responsePacket = (Packet)responsePacketObj;
+            // maybe just change invoke to return Packet
+
+            Log.Information($"Response Packet msgid: {responsePacket.msgId}: {(short)responsePacket.msgId}");
+
+            responsePackeBytes = BuildResponse(responsePacket);
 
             if (responsePackeBytes == null)
             {
+                Log.Error("Unable to build response for packet msgid: " + responsePacket.msgId);
                 throw new InvalidOperationException("something went wrong during building the response packet!");
             }
 
-
-            Console.WriteLine("Built bytes: ");
-            Utils.PrintByteArray(responsePackeBytes);
+            Log.Information("Sucessfully responsed with a respone packet msgid: " + (short)responsePacket.msgId);
+            //Console.WriteLine("Built bytes: ");
+            //Utils.PrintByteArray(responsePackeBytes);
 
             Response.Body.Write(responsePackeBytes, 0, responsePackeBytes.Length);
 
@@ -130,15 +119,23 @@ namespace Novaria.SDKServer.Controllers.Api
 
             IKEReq ikeRequest = ParseIkeRequest(rawPayload);
             
-            Console.WriteLine("Decoded Packet: " + JsonSerializer.Serialize(ikeRequest));
+            Log.Information("Decoded Packet: " + JsonSerializer.Serialize(ikeRequest));
 
             AeadTool.CLIENT_PUBLIC_KEY = ikeRequest.PubKey.ToArray();
 
             IKEResp ikeResponse = new IKEResp()
             {
-                PubKey = ByteString.CopyFrom(AeadTool.CLIENT_PUBLIC_KEY),
+                PubKey = ByteString.CopyFrom(DiffieHellman.Instance.PublicKey),
                 Token = AeadTool.TOKEN
             };
+
+            Log.Information("RECEIVED client public key: ");
+            Utils.PrintByteArray(AeadTool.CLIENT_PUBLIC_KEY);
+
+            byte[] calculatedKey = DiffieHellman.Instance.CalculateSharedSecret(AeadTool.CLIENT_PUBLIC_KEY);
+
+            Log.Information("CALCULATED KEY: ");
+            Utils.PrintByteArray(calculatedKey);
 
             Packet ikePacket = new Packet()
             {
@@ -148,8 +145,8 @@ namespace Novaria.SDKServer.Controllers.Api
 
             var responsePayload = BuildIkeResponse(ikePacket);
 
-            Console.WriteLine("Sending ike response packet: " + JsonSerializer.Serialize(ikeResponse));
-            Console.WriteLine("Built bytes: ");
+            Log.Information("Sending ike response packet: " + JsonSerializer.Serialize(ikeResponse));
+            Log.Information("Built bytes: ");
             Utils.PrintByteArray(responsePayload);
 
             Response.Body.Write(responsePayload, 0, responsePayload.Length);
@@ -177,7 +174,7 @@ namespace Novaria.SDKServer.Controllers.Api
 
             AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.FIRST_IKE_KEY, AeadTool.PS_REQUEST_NONCE, packetData, false);
 
-            Console.WriteLine("build: encrypted data:");
+            Log.Information("build: encrypted data:");
             Utils.PrintByteArray(encryptedPacketData.ToArray());
 
             BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());
@@ -206,6 +203,22 @@ namespace Novaria.SDKServer.Controllers.Api
             return (T)parsedMessage;
         }
 
+        public static IMessage DecodePacket(Type targetType, Packet packet)
+        {
+            PropertyInfo parserProperty = targetType.GetProperty("Parser", BindingFlags.Static | BindingFlags.Public);
+            object parserInstance = parserProperty.GetValue(null);
+            MethodInfo parseFromMethod = parserInstance.GetType().GetMethod("ParseFrom", new[] { typeof(byte[]) });
+
+            IMessage parsedMessage = (IMessage)parseFromMethod.Invoke(parserInstance, new object[] { packet.msgBody });
+
+            if (parsedMessage == null)
+            {
+                throw new InvalidOperationException("Failed to parse message.");
+            }
+
+            return parsedMessage;
+        }
+
         public static byte[] BuildResponse(Packet packet)
         {
             BinaryWriter packetWriter = new BinaryWriter(new MemoryStream());
@@ -225,7 +238,7 @@ namespace Novaria.SDKServer.Controllers.Api
 
             AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.key3, AeadTool.PS_REQUEST_NONCE, packetData, false);
 
-            Console.WriteLine("build: encrypted data:");
+            Log.Information("build: encrypted data:");
             Utils.PrintByteArray(encryptedPacketData.ToArray());
 
             BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());

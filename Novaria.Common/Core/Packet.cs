@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,15 @@ namespace Novaria.Common.Core
         public Action<Packet, object> callback;
 
         public short receiveMsgId;
+
+        public static Packet Create(NetMsgId msgId, IMessage protoPacket)
+        {
+            return new Packet()
+            {
+                msgId = (short)msgId,
+                msgBody = protoPacket.ToByteArray(),
+            };
+        }
     }
 
 }
