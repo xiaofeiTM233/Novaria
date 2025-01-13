@@ -10,7 +10,7 @@
   <ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <ProjectReference Include="..\Novaria.Common\Novaria.Common.csproj" />
-	  <ProjectReference Include="..\Novaria.SDKServer\Novaria.SDKServer.csproj" />
+	  <ProjectReference Include="..\Novaria.SDKServer\Novaria.GameServer.csproj" />
   </ItemGroup>
 
 </Project>

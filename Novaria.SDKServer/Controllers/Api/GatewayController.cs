@@ -5,10 +5,10 @@ using Serilog;
 using Novaria.Common.Core;
 using Proto;
 using Google.Protobuf;
-using Novaria.SDKServer.Controllers.Api.ProtocolHandlers;
+using Novaria.GameServer.Controllers.Api.ProtocolHandlers;
 using Novaria.Common.Util;
 
-namespace Novaria.SDKServer.Controllers.Api
+namespace Novaria.GameServer.Controllers.Api
 {
     [Route("/agent-zone-1")]
     public class GatewayController : ControllerBase

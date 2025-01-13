@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Novaria.Common.Util;
-using Novaria.SDKServer.Controllers.Api.ProtocolHandlers;
+using Novaria.GameServer.Controllers.Api.ProtocolHandlers;
 using Google.Protobuf;
 
 namespace Novaria.PcapParser

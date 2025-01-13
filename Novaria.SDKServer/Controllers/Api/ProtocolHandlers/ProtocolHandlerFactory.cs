@@ -4,7 +4,7 @@ using Proto;
 using Serilog;
 using System.Reflection;
 
-namespace Novaria.SDKServer.Controllers.Api.ProtocolHandlers
+namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     internal class ProtocolHandlerAttribute : Attribute

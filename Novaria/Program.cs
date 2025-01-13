@@ -62,8 +62,7 @@ namespace Novaria
                     .CreateBootstrapLogger();
             }
 
-            Task.Run(GameServer.GameServer.Instance.Start);
-            SDKServer.SDKServer.Main(args);
+            GameServer.GameServer.Main(args);
         }
     }
 }

@@ -5,7 +5,7 @@ using Novaria.Common.Util;
 using Pb;
 using Serilog;
 
-namespace Novaria.SDKServer.CoNovariaollers
+namespace Novaria.GameServer.CoNovariaollers
 {
     [ApiController]
     [Route("/meta")]

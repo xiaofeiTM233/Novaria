@@ -5,15 +5,15 @@ using Novaria.Common.Core;
 using Proto;
 using Serilog;
 
-using Novaria.SDKServer.Controllers.Api.ProtocolHandlers;
+using Novaria.GameServer.Controllers.Api.ProtocolHandlers;
 using Novaria.Common.Util;
 using System.Numerics;
 using Microsoft.AspNetCore.DataProtection;
 using System.Text;
 
-namespace Novaria.SDKServer
+namespace Novaria.GameServer
 {
-    public class SDKServer
+    public class GameServer
     {
         public static void Main(string[] args)
         {
@@ -29,7 +29,7 @@ namespace Novaria.SDKServer
 
                 builder.Services.AddControllers();
                 builder.Services.AddProtocolHandlerFactory();
-                builder.Services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(SDKServer)));
+                builder.Services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(GameServer)));
 
                 // Add all Handler Groups
                 var handlerGroups = Assembly.GetAssembly(typeof(ProtocolHandlerFactory))

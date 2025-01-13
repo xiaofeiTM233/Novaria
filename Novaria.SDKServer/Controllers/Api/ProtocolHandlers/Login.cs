@@ -4,7 +4,7 @@ using Proto;
 using Serilog;
 using System.Text.Json;
 
-namespace Novaria.SDKServer.Controllers.Api.ProtocolHandlers
+namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 {
     public class Login : ProtocolHandlerBase
     {
