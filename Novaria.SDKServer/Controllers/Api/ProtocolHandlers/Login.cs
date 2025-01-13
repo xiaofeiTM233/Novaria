@@ -70,7 +70,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         }
 
         [ProtocolHandler(NetMsgId.player_ping_req)]
-        public Packet PlayerRegHandler(PlayerReg req)
+        public Packet PlayerRegHandler(Ping req)
         {
             return Packet.Create(NetMsgId.player_ping_succeed_ack, new Pong()
             {

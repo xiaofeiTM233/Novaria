@@ -46,7 +46,7 @@ namespace Novaria.GameServer.CoNovariaollers
         },
         ""Identity"": {
             ""BirthDate"": """",
-            ""IDCard"": ""123*********34567*"",
+            ""IDCard"": ""123*********34567"",
             ""PI"": """",
             ""RealName"": ""**"",
             ""State"": 1,
@@ -88,12 +88,20 @@ namespace Novaria.GameServer.CoNovariaollers
         {
             string jsonResponse = @"
 {
-    ""Code"": 200,
-    ""Data"": {
-        ""Destroy"": {
-            ""DestroyAt"": 0
+        ""Code"": 200,
+        ""Data"": {
+            ""Destroy"": {
+                ""DestroyAt"": 0
+            },
+        ""Identity"": {
+            ""BirthDate"": """",
+            ""IDCard"": ""123*********34567*"",
+            ""PI"": """",
+            ""RealName"": ""**"",
+            ""State"": 1,
+            ""Type"": 0,
+            ""Underage"": false
         },
-        ""Identity"": null,
         ""IsTestAccount"": false,
         ""Keys"": [
             {
