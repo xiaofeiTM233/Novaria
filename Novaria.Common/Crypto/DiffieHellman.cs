@@ -24,7 +24,15 @@ namespace Novaria.Common.Crypto
             BigInteger clientPubKeyInt = new BigInteger(clientPubKey.Reverse().ToArray());
 
             //Cpub**Spriv mod p
-            return BigInteger.ModPow(clientPubKeyInt, spriv, p).ToByteArray(true, true)[..32];
+            Console.WriteLine(clientPubKeyInt.ToString());
+
+            var result = BigInteger.ModPow(clientPubKeyInt, spriv, p);
+            if (result < 0)
+            {
+                result += p; // Make the result non-negative, causes error if -
+            }
+
+            return result.ToByteArray(true, true)[..32];
         }
 
         // this is for manual pcap parsing use only, officalServerPubKey is in the first IKE response, client priv will be in frida

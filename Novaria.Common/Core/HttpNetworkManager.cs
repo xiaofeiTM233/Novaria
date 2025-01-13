@@ -126,6 +126,7 @@ namespace Novaria.Common.Core
             if (!success)
             {
                 Log.Error("something went wrong when chacha20 decrypting the data");
+                throw new InvalidDataException("something went wrong when chacha20 decrypting the data");
             }
 
             byte[] decrypted_bytes = decrypt_result.ToArray();

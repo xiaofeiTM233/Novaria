@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Novaria.Common\Novaria.Common.csproj" />
-	  
+	  <ProjectReference Include="..\Novaria.Common\Novaria.Common.csproj" />
+	  <ProjectReference Include="..\Novaria.PcapParser\Novaria.PcapParser.csproj" />
   </ItemGroup>
 </Project>

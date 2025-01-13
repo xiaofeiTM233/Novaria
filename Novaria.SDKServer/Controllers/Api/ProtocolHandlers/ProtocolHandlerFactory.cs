@@ -3,6 +3,7 @@ using Novaria.Common.Core;
 using Proto;
 using Serilog;
 using System.Reflection;
+using Novaria.PcapParser;
 
 namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 {
