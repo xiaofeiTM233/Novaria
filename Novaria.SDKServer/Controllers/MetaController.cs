@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf;
 using Microsoft.AspNetCore.Mvc;
 using Novaria.Common.Crypto;
-using Novaria.Common.Utils;
+using Novaria.Common.Util;
 using Pb;
 using Serilog;
 

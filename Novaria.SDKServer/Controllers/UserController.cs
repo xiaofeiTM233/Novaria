@@ -46,9 +46,9 @@ namespace Novaria.SDKServer.CoNovariaollers
         },
         ""Identity"": {
             ""BirthDate"": """",
-            ""IDCard"": ""500*********11861*"",
+            ""IDCard"": ""123*********34567*"",
             ""PI"": """",
-            ""RealName"": ""*思"",
+            ""RealName"": ""**"",
             ""State"": 1,
             ""Type"": 0,
             ""Underage"": false
@@ -65,13 +65,13 @@ namespace Novaria.SDKServer.CoNovariaollers
             ""ID"": 1,
             ""PID"": ""CN-NOVA"",
             ""State"": 1,
-            ""Token"": ""f94d936f7235f84493564ee0282e845cccd44828""
+            ""Token"": ""f94d936f723asdasd5f84493564ee0282e845cccd44828""
         },
         ""Yostar"": {
-            ""CreatedAt"": 1735902342,
+            ""CreatedAt"": 1735902322,
             ""DefaultNickName"": """",
             ""ID"": 1,
-            ""NickName"": ""夏萝莉是小楠梁"",
+            ""NickName"": ""seggs"",
             ""Picture"": """",
             ""State"": 1
         }
@@ -106,13 +106,13 @@ namespace Novaria.SDKServer.CoNovariaollers
             ""ID"": 1,
             ""PID"": ""CN-NOVA"",
             ""State"": 1,
-            ""Token"": ""f94d936f7235f84493564ee0282e845cccd44828""
+            ""Token"": ""f9s243e483e3e322138""
         },
         ""Yostar"": {
             ""CreatedAt"": 1,
             ""DefaultNickName"": """",
             ""ID"": 1,
-            ""NickName"": ""夏萝莉是小楠梁"",
+            ""NickName"": ""seggs"",
             ""Picture"": """",
             ""State"": 1
         }

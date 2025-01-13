@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Novaria.Common.Utils
+namespace Novaria.Common.Util
 {
     public class PB
     {

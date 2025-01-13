@@ -18,9 +18,9 @@ namespace Novaria.SDKServer.CoNovariaollers
     ""Data"": {
         ""Identity"": {
             ""BirthDate"": """",
-            ""IDCard"": ""500*********11861*"",
+            ""IDCard"": ""123*********34567*"",
             ""PI"": """",
-            ""RealName"": ""*思"",
+            ""RealName"": ""**"",
             ""State"": 1,
             ""Type"": 0,
             ""Underage"": false
