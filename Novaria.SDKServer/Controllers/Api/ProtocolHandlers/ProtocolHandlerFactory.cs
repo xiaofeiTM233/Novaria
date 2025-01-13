@@ -21,7 +21,6 @@ namespace Novaria.SDKServer.Controllers.Api.ProtocolHandlers
     {
         public object? Invoke(NetMsgId protocol, IMessage? req);
         public MethodInfo? GetProtocolHandler(NetMsgId protocol);
-        public Type? GetRequestPacketTypeByProtocol(NetMsgId protocol);
         public void RegisterInstance(Type t, object? inst);
     }
 
@@ -621,8 +620,13 @@ namespace Novaria.SDKServer.Controllers.Api.ProtocolHandlers
             return handler;
         }
 
-        public Type? GetRequestPacketTypeByProtocol(NetMsgId msgId)
+        public static Type? GetRequestPacketTypeByProtocol(NetMsgId msgId)
         {
+            if (!ProtocolHandlerFactory.NetMsgIdToNameMappings.ContainsKey((short)msgId))
+            {
+                return null;
+            }
+
             string msgIdClassName = ProtocolHandlerFactory.NetMsgIdToNameMappings[(short)msgId];
 
             Type packetClassType = Assembly.GetAssembly(typeof(LoginReq))!.GetTypes().Where(x => x.Name == msgIdClassName).SingleOrDefault();

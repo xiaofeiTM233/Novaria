@@ -1,0 +1,4408 @@
+[
+  {
+    "Method": "REQUEST",
+    "Packet": {
+      "Platform": 2,
+      "Language": "zh_CN",
+      "Channel": "Official",
+      "Device": "dc18e12b9629e94e",
+      "Version": 1,
+      "NextPackage": [],
+      "Account": null,
+      "Token": "",
+      "HasToken": false,
+      "Official": {
+        "Uid": 1009114480,
+        "Token": "22ac886e5fbeef4dbb8d836d8bcb16668db7ca7d",
+        "NextPackage": []
+      },
+      "AuthCase": 3
+    },
+    "ClassType": "LoginReq",
+    "MsgId": 4
+  },
+  {
+    "Method": "RESPONSE",
+    "Packet": {
+      "Token": "ehiEADnCa5Z3SJp8Pa4jSxkQ9qc60fI4Vs7WwEgFdHbYaFaRgqYXTTtcq936fbQp8BYX+c5p7H4muEB0QEyqLhqj6oXHbsgnDWaWt4xAcwTSabGSq2DLr3TF+FNDfsi8l5RvHQ",
+      "NextPackage": []
+    },
+    "ClassType": "LoginResp",
+    "MsgId": 5
+  },
+  {
+    "Method": "REQUEST",
+    "Packet": {
+      "NextPackage": []
+    },
+    "ClassType": "Nil",
+    "MsgId": 1001
+  },
+  {
+    "Method": "RESPONSE",
+    "Packet": {
+      "Acc": {
+        "Id": 15667,
+        "NickName": "Raphael",
+        "Hashtag": 4562,
+        "HeadIcon": 100101,
+        "Gender": false,
+        "Signature": "",
+        "TitlePrefix": 1,
+        "TitleSuffix": 2,
+        "CharIds": [],
+        "SkinId": 10301,
+        "Newbies": [
+          {
+            "GroupId": 101,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 102,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 1,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 2,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 3,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 5,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 6,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 7,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 8,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 9,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 10,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 11,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 12,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 13,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 14,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 15,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 16,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 17,
+            "StepId": -1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 20,
+            "StepId": -1,
+            "NextPackage": []
+          }
+        ],
+        "CreateTime": 1736404863,
+        "NextPackage": []
+      },
+      "Res": [
+        {
+          "Tid": 1,
+          "Qty": 54373740,
+          "NextPackage": []
+        },
+        {
+          "Tid": 2,
+          "Qty": 60,
+          "NextPackage": []
+        },
+        {
+          "Tid": 31,
+          "Qty": 4500,
+          "NextPackage": []
+        },
+        {
+          "Tid": 28,
+          "Qty": 6,
+          "NextPackage": []
+        }
+      ],
+      "Items": [
+        {
+          "Id": 0,
+          "Tid": 22052,
+          "Qty": 12,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20012,
+          "Qty": 70,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 484467309428084837,
+          "Tid": 81001,
+          "Qty": 4,
+          "Expire": 1739134800,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21022,
+          "Qty": 114,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82001,
+          "Qty": 33,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22031,
+          "Qty": 192,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21011,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 55002,
+          "Qty": 39,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22061,
+          "Qty": 228,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22032,
+          "Qty": 16,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82026,
+          "Qty": 410,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31011,
+          "Qty": 18,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22011,
+          "Qty": 84,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20001,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 30004,
+          "Qty": 1871,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82007,
+          "Qty": 240,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82002,
+          "Qty": 21,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20002,
+          "Qty": 90,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21002,
+          "Qty": 114,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31051,
+          "Qty": 33,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20042,
+          "Qty": 23,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82003,
+          "Qty": 18,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 81004,
+          "Qty": 60,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22022,
+          "Qty": 16,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20051,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20021,
+          "Qty": 60,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 50004,
+          "Qty": 990,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82006,
+          "Qty": 144,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31032,
+          "Qty": 4,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82025,
+          "Qty": 58,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 484467309428084805,
+          "Tid": 81001,
+          "Qty": 4,
+          "Expire": 1739134800,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 33903,
+          "Qty": 5,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 51,
+          "Qty": 3545,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 30002,
+          "Qty": 1,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20022,
+          "Qty": 90,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22021,
+          "Qty": 192,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21012,
+          "Qty": 114,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20052,
+          "Qty": 23,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21051,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21042,
+          "Qty": 45,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 30001,
+          "Qty": 1,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31022,
+          "Qty": 4,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31052,
+          "Qty": 3,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 22051,
+          "Qty": 144,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21052,
+          "Qty": 45,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 82005,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31031,
+          "Qty": 39,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31021,
+          "Qty": 39,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21021,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 21001,
+          "Qty": 48,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 31061,
+          "Qty": 18,
+          "Expire": 0,
+          "NextPackage": []
+        },
+        {
+          "Id": 0,
+          "Tid": 20011,
+          "Qty": 18,
+          "Expire": 0,
+          "NextPackage": []
+        }
+      ],
+      "Chars": [
+        {
+          "Tid": 120,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 12001,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 12001,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12002,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12003,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12004,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12005,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12006,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12007,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12008,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12009,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 108,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 10,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 10801,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 10801,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10802,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10803,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10804,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10805,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10806,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10807,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10808,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10809,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747405,
+          "NextPackage": []
+        },
+        {
+          "Tid": 132,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 13201,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 13201,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13202,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13203,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13204,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13205,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13206,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13207,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13208,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13209,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 142,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 14201,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 14201,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14202,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14203,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14204,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14205,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14206,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14207,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14208,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 14209,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 126,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 10,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 12601,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 12601,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12602,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12603,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12604,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12605,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12606,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12607,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12608,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12609,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747405,
+          "NextPackage": []
+        },
+        {
+          "Tid": 123,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 12301,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 12301,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12302,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12303,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12304,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12305,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12306,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12307,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12308,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12309,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 119,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11901,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11901,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11902,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11903,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11904,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11905,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11906,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11907,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11908,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11909,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 125,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 12501,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 12501,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12502,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12503,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12504,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12505,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12506,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12507,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12508,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12509,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 118,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11801,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11801,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11802,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11803,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11804,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11805,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11806,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11807,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11808,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11809,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 103,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 10,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 10301,
+          "AffinityLevel": 3,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 10301,
+                "Status": 2,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 1,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10302,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10303,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10304,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10305,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10306,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10307,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10308,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10309,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 5,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Tid": 112,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11201,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11201,
+                "Status": 1,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 1,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11202,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11203,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11204,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11205,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11206,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11207,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11208,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11209,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 1,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Tid": 127,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 12701,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 12701,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12702,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12703,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12704,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12705,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12706,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12707,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12708,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 12709,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 113,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11301,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11301,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11302,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11303,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11304,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11305,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11306,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11307,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11308,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11309,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 135,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 13501,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 13501,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13502,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13503,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13504,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13505,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13506,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13507,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13508,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 13509,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 117,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11701,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11701,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11702,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11703,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11704,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11705,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11706,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11707,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11708,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11709,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Tid": 111,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 11101,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 11101,
+                "Status": 1,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 1,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11102,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11103,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11104,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11105,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11106,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11107,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11108,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 11109,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 1,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Tid": 107,
+          "Exp": 0,
+          "DatingLandmarkIds": [],
+          "DatingEventIds": [],
+          "DatingEventRewardIds": [],
+          "EquipmentIds": [
+            0,
+            0,
+            0
+          ],
+          "Level": 1,
+          "SkillLvs": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "Skin": 10701,
+          "AffinityLevel": 0,
+          "AffinityExp": 0,
+          "Advance": 0,
+          "Plots": [],
+          "AffinityQuests": {
+            "List": [
+              {
+                "Id": 10701,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10702,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10703,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10704,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 5,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10705,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10706,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10707,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10708,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 1,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              },
+              {
+                "Id": 10709,
+                "Status": 0,
+                "Expire": 0,
+                "Type": 5,
+                "Progress": [
+                  {
+                    "Cur": 0,
+                    "Max": 24,
+                    "NextPackage": []
+                  }
+                ],
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          "TalentNodes": [],
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        }
+      ],
+      "Formation": {
+        "Info": [
+          {
+            "Number": 1,
+            "CharIds": [
+              103,
+              108,
+              126
+            ],
+            "DiscIds": [
+              214001,
+              214013,
+              214019
+            ],
+            "NextPackage": []
+          }
+        ],
+        "Record": [
+          {
+            "GroupId": 4,
+            "Number": 1,
+            "NextPackage": []
+          },
+          {
+            "GroupId": 3,
+            "Number": 1,
+            "NextPackage": []
+          }
+        ],
+        "NextPackage": []
+      },
+      "StarTowerRankTicket": 3,
+      "Energy": {
+        "Energy": {
+          "Cur": 2000,
+          "Next": 0,
+          "NextPackage": []
+        },
+        "Count": 0,
+        "NextPackage": []
+      },
+      "WorldClass": {
+        "Cur": 30,
+        "LastExp": 370,
+        "NextPackage": []
+      },
+      "Agent": {
+        "Infos": [],
+        "NewAgentIds": [
+          1101
+        ],
+        "DailyIds": [],
+        "WeeklyIds": [],
+        "NextPackage": []
+      },
+      "RglPassedIds": [
+        401
+      ],
+      "Equipments": [],
+      "RegionBossLevels": [],
+      "Quests": {
+        "List": [
+          {
+            "Id": 1001,
+            "Status": 2,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 2006,
+            "Status": 0,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1007,
+            "Status": 2,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1003,
+            "Status": 0,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 5,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1002,
+            "Status": 2,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 2003,
+            "Status": 2,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 2007,
+            "Status": 0,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1006,
+            "Status": 0,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1005,
+            "Status": 1,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1004,
+            "Status": 0,
+            "Expire": 1736802000,
+            "Type": 2,
+            "Progress": [
+              {
+                "Cur": 10,
+                "Max": 100,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1004,
+            "Status": 1,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1005,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1001,
+            "Status": 1,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1002,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1006,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 1003,
+            "Status": 1,
+            "Expire": 0,
+            "Type": 1,
+            "Progress": [
+              {
+                "Cur": 1,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 100,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 10,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 3,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 102,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 10,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 101,
+            "Status": 1,
+            "Expire": 0,
+            "Type": 10,
+            "Progress": [
+              {
+                "Cur": 2,
+                "Max": 2,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 103,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 10,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10303,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10101,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10103,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10201,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10202,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10203,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10301,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10102,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 10302,
+            "Status": 0,
+            "Expire": 0,
+            "Type": 8,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 201,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 5000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 202,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 10000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 203,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 20000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 204,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 50000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 205,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 100000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 206,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 200000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 207,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 500000,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 20101,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 20102,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          },
+          {
+            "Id": 20103,
+            "Status": 0,
+            "Expire": 1737288000,
+            "Type": 9,
+            "Progress": [
+              {
+                "Cur": 0,
+                "Max": 1,
+                "NextPackage": []
+              }
+            ],
+            "NextPackage": []
+          }
+        ],
+        "NextPackage": []
+      },
+      "State": {
+        "Mail": {
+          "New": false,
+          "Revoke": false,
+          "NextPackage": []
+        },
+        "InfinityTower": true,
+        "Friend": false,
+        "BattlePass": {
+          "State": 0,
+          "NextPackage": []
+        },
+        "WorldClassReward": {
+          "Flag": [
+            254,
+            255,
+            255,
+            63
+          ],
+          "NextPackage": []
+        },
+        "CharAdvanceRewards": [],
+        "FriendEnergy": {
+          "State": false,
+          "NextPackage": []
+        },
+        "CharAffinityRewards": [
+          {
+            "CharId": 111,
+            "QuestIds": [
+              11101
+            ],
+            "NextPackage": []
+          },
+          {
+            "CharId": 112,
+            "QuestIds": [
+              11201
+            ],
+            "NextPackage": []
+          }
+        ],
+        "MallPackage": {
+          "New": true,
+          "NextPackage": []
+        },
+        "Achievement": {
+          "New": true,
+          "NextPackage": []
+        },
+        "TravelerDuelQuest": {
+          "Type": 3,
+          "New": false,
+          "NextPackage": []
+        },
+        "TravelerDuelChallengeQuest": {
+          "Type": 4,
+          "New": false,
+          "NextPackage": []
+        },
+        "StarTower": {
+          "Id": 302,
+          "ReConnection": 0,
+          "BuildId": 0,
+          "CharIds": [
+            103,
+            108,
+            126
+          ],
+          "SeasonId": 0,
+          "Floor": 1,
+          "ReportId": 0,
+          "Sweep": false,
+          "NextPackage": []
+        },
+        "StarTowerBook": {
+          "CharIds": [],
+          "EventIds": [
+            11001
+          ],
+          "Bundles": [],
+          "NextPackage": []
+        },
+        "NextPackage": []
+      },
+      "SendGiftCnt": 0,
+      "Board": [
+        410301
+      ],
+      "DatingCharIds": [],
+      "Achievements": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        63,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        48,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        134,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "Handbook": [
+        {
+          "Type": 1,
+          "Data": [
+            4,
+            16,
+            65,
+            85,
+            84,
+            10,
+            130,
+            132
+          ],
+          "NextPackage": []
+        },
+        {
+          "Type": 2,
+          "Data": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            62,
+            31,
+            115
+          ],
+          "NextPackage": []
+        }
+      ],
+      "SigninIndex": 0,
+      "Titles": [
+        {
+          "TitleId": 1,
+          "NextPackage": []
+        },
+        {
+          "TitleId": 2,
+          "NextPackage": []
+        }
+      ],
+      "DailyInstances": [
+        {
+          "Id": 1000,
+          "Star": 7,
+          "BuildId": 1736747025,
+          "NextPackage": []
+        }
+      ],
+      "Dictionaries": [
+        {
+          "TabId": 1,
+          "Entries": [
+            {
+              "Index": 1,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 2,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 3,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 4,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 5,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 7,
+              "Status": 1,
+              "NextPackage": []
+            }
+          ],
+          "NextPackage": []
+        },
+        {
+          "TabId": 2,
+          "Entries": [
+            {
+              "Index": 1,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 2,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 3,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 4,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 9,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 10,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 11,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 12,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 13,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 14,
+              "Status": 1,
+              "NextPackage": []
+            },
+            {
+              "Index": 15,
+              "Status": 1,
+              "NextPackage": []
+            }
+          ],
+          "NextPackage": []
+        }
+      ],
+      "Activities": [
+        {
+          "Id": 101002,
+          "StartTime": 1736404863,
+          "EndTime": -1,
+          "Status": true,
+          "NextPackage": []
+        }
+      ],
+      "Phone": {
+        "NewMessage": 17,
+        "ProgressMessage": 0,
+        "NextPackage": []
+      },
+      "TalentResetTime": 0,
+      "EquipmentDoubleCount": 0,
+      "Discs": [
+        {
+          "Id": 214019,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747405,
+          "NextPackage": []
+        },
+        {
+          "Id": 214020,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214021,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214018,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214002,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214007,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 211001,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Id": 214013,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747405,
+          "NextPackage": []
+        },
+        {
+          "Id": 214001,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747405,
+          "NextPackage": []
+        },
+        {
+          "Id": 214009,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214010,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 211007,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Id": 214005,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214011,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214012,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 214006,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        },
+        {
+          "Id": 211005,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736745112,
+          "NextPackage": []
+        },
+        {
+          "Id": 214022,
+          "Level": 1,
+          "Exp": 0,
+          "Phase": 0,
+          "Star": 0,
+          "Read": false,
+          "CreateTime": 1736747439,
+          "NextPackage": []
+        }
+      ],
+      "EquipmentInstances": [],
+      "Story": {
+        "Evidences": [],
+        "Stories": [
+          {
+            "Idx": 101,
+            "Major": [],
+            "Personality": [],
+            "NextPackage": []
+          },
+          {
+            "Idx": 102,
+            "Major": [],
+            "Personality": [],
+            "NextPackage": []
+          }
+        ],
+        "BuildId": 0,
+        "NextPackage": []
+      },
+      "VampireSurvivorRecord": {
+        "PassedIds": [],
+        "Normals": [],
+        "Season": {
+          "Id": 0,
+          "BuildId1": 0,
+          "BuildId2": 0
+        },
+        "SeasonScore": 0,
+        "NextPackage": []
+      },
+      "DailyActiveIds": [
+        1,
+        2,
+        3
+      ],
+      "TourGuideQuestGroup": 0,
+      "HonorList": [],
+      "Honors": [],
+      "DailyShopRewardStatus": true,
+      "TowerTicket": 0,
+      "ServerTs": 1736749288,
+      "NextPackage": []
+    },
+    "ClassType": "PlayerInfo",
+    "MsgId": 1002
+  }
+]

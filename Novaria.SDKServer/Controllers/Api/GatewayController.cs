@@ -46,7 +46,7 @@ namespace Novaria.SDKServer.Controllers.Api
             NetMsgId msgid = (NetMsgId)requestPacket.msgId;
             Log.Information("Received protocol msgid: " + msgid);
 
-            Type requestType = protocolHandlerFactory.GetRequestPacketTypeByProtocol(msgid);
+            Type requestType = ProtocolHandlerFactory.GetRequestPacketTypeByProtocol(msgid);
 
             if (requestType is null)
             {

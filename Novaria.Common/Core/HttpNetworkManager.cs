@@ -145,6 +145,64 @@ namespace Novaria.Common.Core
             return packet;
         }
 
+        public Packet ParseResponse(byte[] encryptedRawPayload)
+        {
+            bool flag = false; 
+
+            BinaryReader reader = new BinaryReader(new MemoryStream(encryptedRawPayload));
+
+            byte[] nonceBytes = new byte[12]; // nonce 12 bytes length
+            reader.Read(nonceBytes);
+
+            byte[] aeadBytes = new byte[1]; // aead byte is 1 byte, original field in AeadTool
+            int packetSize = encryptedRawPayload.Length - nonceBytes.Length; // skip nonce length (12)
+
+            if (flag)
+            {
+                reader.Read(aeadBytes); // read to skip in memory, idk whats the use for this
+                packetSize--; // skip in payload
+            }
+
+            byte[] packetBytes = new byte[packetSize];
+            reader.Read(packetBytes);
+
+            if (reader.BaseStream.Position != encryptedRawPayload.Length)
+            {
+                Log.Error("something went wrong, not all the bytes were read");
+                Log.Error("reader pos: " + reader.BaseStream.Position);
+                Log.Error("original len:" + encryptedRawPayload.Length);
+            }
+
+            Span<byte> decrypt_result = new Span<byte>(new byte[packetSize - 16]); // for chacha20, the result is 16 bytes less than the input data
+
+            Span<byte> nonce = nonceBytes.AsSpan();
+            Span<byte> packet_data = packetBytes.AsSpan();
+
+            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.key3, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
+
+            if (!success)
+            {
+                Console.WriteLine("something went wrong when chacha20 decrypting the data");
+            }
+
+            byte[] decrypted_bytes = decrypt_result.ToArray();
+
+            //Utils.PrintByteArray(decrypted_bytes);
+
+            byte[] msgid_bytes = decrypted_bytes[..2]; // first two bytes is msgid
+            Array.Reverse<byte>(msgid_bytes); // should check BitConverter.IsLittleEndian (if true -> reverse, was true on my pc)
+
+            short msgId = BitConverter.ToInt16(msgid_bytes);
+
+            Packet packet = new Packet()
+            {
+                msgId = msgId,
+                msgBody = decrypted_bytes[2..],
+            };
+
+            return packet;
+        }
+
         // used for parsing ike requests in ps (or any request ig) client -> server
         public IKEReq ParseIkeRequest(byte[] encryptedRawPayload)
         {

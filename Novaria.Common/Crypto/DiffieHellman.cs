@@ -27,7 +27,7 @@ namespace Novaria.Common.Crypto
             return BigInteger.ModPow(clientPubKeyInt, spriv, p).ToByteArray(true, true)[..32];
         }
 
-        // this is for pcap parsing use only, officalServerPubKey is in the first IKE response, client priv will be pcaped too
+        // this is for manual pcap parsing use only, officalServerPubKey is in the first IKE response, client priv will be in frida
         public byte[] CalculateKey(byte[] officalServerPubKey, byte[] officialClientPriv)
         {
             BigInteger officalServerPubKeyInt = new BigInteger(officalServerPubKey.Reverse().ToArray());
