@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            PcapParser.Instance.Parse("first_instant_join.json");
+            PcapParser.Instance.Parse("all_mainmenu_packets.json");
 
             PcapParser.Instance.SavePackets("parsed_packets.json");
         }

@@ -27,10 +27,16 @@ namespace Novaria.Common.Crypto
             Console.WriteLine(clientPubKeyInt.ToString());
 
             var result = BigInteger.ModPow(clientPubKeyInt, spriv, p);
-            if (result < 0)
-            {
-                result += p; // Make the result non-negative, causes error if -
-            }
+
+            //if (result < 0)
+            //{
+            //    return result.ToByteArray(false, true)[..32];
+            //}
+
+            //else
+            //{
+                
+            //}
 
             return result.ToByteArray(true, true)[..32];
         }

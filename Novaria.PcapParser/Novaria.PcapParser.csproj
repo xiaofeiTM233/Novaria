@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="all_mainmenu_packets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="all_mainmenu_packets.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <ProjectReference Include="..\Novaria.Common\Novaria.Common.csproj" />
   </ItemGroup>

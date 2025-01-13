@@ -55,7 +55,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 
             byte[] real_key = AeadTool.key3;
             // load from pcap
-            PcapParser.PcapParser.Instance.Parse("first_instant_join.json");
+            PcapParser.PcapParser.Instance.Parse("all_mainmenu_packets.json");
 
             PlayerInfo pcapPlayerInfo = (PlayerInfo)PcapParser.PcapParser.Instance.GetPcapPacket(NetMsgId.player_data_succeed_ack);
 
@@ -69,14 +69,14 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
             return Packet.Create(NetMsgId.player_data_succeed_ack, pcapPlayerInfo);
         }
 
-        //[ProtocolHandler(NetMsgId.player_reg_req)]
-        //public Packet PlayerRegHandler(PlayerReg req)
-        //{
-        //    Log.Information("player_reg_req received, contents: " + JsonSerializer.Serialize(req));
+        [ProtocolHandler(NetMsgId.player_ping_req)]
+        public Packet PlayerRegHandler(PlayerReg req)
+        {
+            return Packet.Create(NetMsgId.player_ping_succeed_ack, new Pong()
+            {
+                ServerTs = DateTime.Now.Ticks,
+            });
+        }
 
-        //    //Log.Information("Sending PlayerInfo packet: " + JsonSerializer.Serialize(playerInfoResp));
-        //    return null;
-        //}
-        
     }
 }

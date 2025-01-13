@@ -81,7 +81,8 @@ namespace Novaria.PcapParser
                     Method = packet.type,
                     Packet = Convert.ChangeType(decodedPayload, requestType),
                     MsgId = msgid,
-                    ClassType = NetMsgIdToNameMappings[(short)msgid]
+                    ClassType = NetMsgIdToNameMappings[(short)msgid],
+                    MsgIdName = Enum.GetName(typeof(NetMsgId), msgid)
                 });
             }
         }
@@ -682,6 +683,7 @@ namespace Novaria.PcapParser
         public object Packet { get; set; }
         public string ClassType { get; set; }
         public NetMsgId MsgId { get; set; }
+        public string MsgIdName { get; set; }
     }
 
 }
