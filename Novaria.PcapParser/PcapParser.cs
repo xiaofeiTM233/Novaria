@@ -19,11 +19,9 @@ namespace Novaria.PcapParser
         public int totalPacketsCount = 0;
         public List<NovaPacket> packets = new List<NovaPacket>();
 
-        private readonly string rootPath = "E:\\documents\\Decompiling\\Extracted\\NOVA\\Novaria\\Novaria.PcapParser\\";
-
         public void Parse(string pcapFileName, bool auto_key = true)
         {
-            string pcapJsonFile = File.ReadAllText(rootPath + pcapFileName);
+            string pcapJsonFile = File.ReadAllText($"../../../../Novaria.PcapParser/{pcapFileName}"); // disgusting pathing, but "not hardcoded" now ig
             var data = System.Text.Json.JsonSerializer.Deserialize<List<PcapPacket>>(pcapJsonFile);
 
             foreach (PcapPacket packet in data)
@@ -90,7 +88,7 @@ namespace Novaria.PcapParser
         public void SavePackets(string saveFileName)
         {
             Console.WriteLine($"Got {packets.Count} packet(s) out a total of {totalPacketsCount}");
-            File.WriteAllText(rootPath + saveFileName, JsonConvert.SerializeObject(packets, Formatting.Indented));
+            File.WriteAllText($"../../../{saveFileName}", JsonConvert.SerializeObject(packets, Formatting.Indented));
         }
 
         public IMessage GetPcapPacket(NetMsgId msgId)

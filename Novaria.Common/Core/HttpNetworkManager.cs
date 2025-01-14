@@ -21,7 +21,7 @@ namespace Novaria.Common.Core
             }
 
             packetWriter.Write(msgIdBytes.AsSpan<byte>());
-            packetWriter.Write(packet.msgBody.AsSpan<byte>());
+            packetWriter.Write(packet.msgBody.AsSpan<byte>()); 
 
 
             byte[] packetData = ((MemoryStream)packetWriter.BaseStream).ToArray();
@@ -261,6 +261,8 @@ namespace Novaria.Common.Core
                 msgId = msgId,
                 msgBody = decrypted_bytes[2..],
             };
+
+            Utils.PrintByteArray(decrypted_bytes);
 
             IKEReq ike_request = IKEReq.Parser.ParseFrom(packet.msgBody);
 

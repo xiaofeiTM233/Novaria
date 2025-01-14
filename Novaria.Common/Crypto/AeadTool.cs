@@ -8,6 +8,7 @@ using Novaria.Common.Util;
 
 //using Mono.Security.Cryptography;
 using NSec.Cryptography;
+using Serilog;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Novaria.Common.Crypto
@@ -46,15 +47,20 @@ namespace Novaria.Common.Crypto
             
             FIRST_IKE_KEY = new byte[] { 51, 76, 83, 57, 38, 111, 89, 100, 115, 112, 94, 53, 119, 105, 56, 38, 90, 120, 67, 35, 99, 55, 77, 90, 103, 55, 51, 104, 98, 69, 68, 119 };
 
-            if (clientType == ClientType.Mobile)
-            {
-                FIRST_IKE_KEY = Encoding.ASCII.GetBytes("3LS9&oYdsp^5wi8&ZxC#c7MZg73hbEDw");
-            }
+            //if (clientType == ClientType.Mobile)
+            //{
+            //    FIRST_IKE_KEY = Encoding.ASCII.GetBytes("3LS9&oYdsp^5wi8&ZxC#c7MZg73hbEDw");
+            //    Log.Information("Mobile Client Type with key:");
+            //    Utils.PrintByteArray(FIRST_IKE_KEY);
+            //}
 
-            else
-            {
-                FIRST_IKE_KEY = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t");
-            }
+            //else
+            //{
+            //    FIRST_IKE_KEY = Encoding.ASCII.GetBytes("#$*;1H&x*)0!@,/OcIe4VbiL[~fLyE7t");
+            //    Log.Information("PC Client Type with key:");
+            //    Utils.PrintByteArray(FIRST_IKE_KEY);
+            //}
+            FIRST_IKE_KEY = Encoding.ASCII.GetBytes("3LS9&oYdsp^5wi8&ZxC#c7MZg73hbEDw");
 
             associatedData = new byte[13];
 

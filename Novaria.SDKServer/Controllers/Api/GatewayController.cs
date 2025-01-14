@@ -102,6 +102,8 @@ namespace Novaria.GameServer.Controllers.Api
             Request.Body.CopyTo(memoryStream); // Copy request body to MemoryStream
             byte[] rawPayload = memoryStream.ToArray();    // Get raw bytes from MemoryStream
 
+            Utils.PrintByteArray(rawPayload);
+
             IKEReq ikeRequest = HttpNetworkManager.Instance.ParseIkeRequest(rawPayload);
             
             Log.Information("Decoded Packet: " + JsonSerializer.Serialize(ikeRequest));
