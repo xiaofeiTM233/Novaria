@@ -33,11 +33,6 @@ namespace Novaria.Common.Crypto
             //    return result.ToByteArray(false, true)[..32];
             //}
 
-            //else
-            //{
-                
-            //}
-
             return result.ToByteArray(true, true)[..32];
         }
 

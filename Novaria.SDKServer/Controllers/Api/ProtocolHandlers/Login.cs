@@ -40,7 +40,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
                 Id = 1,
                 Hashtag = 4562,
                 HeadIcon = 100101,
-                NickName = "夏萝莉是小楠梁",
+                NickName = "seggs",
                 Gender = false,
                 Signature = "",
                 TitlePrefix = 1,
@@ -54,8 +54,17 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 
 
             byte[] real_key = AeadTool.key3;
+            ClientType real_client_type = AeadTool.clientType;
+
             // load from pcap
+            AeadTool.clientType = ClientType.Mobile; // my pcap were from mobile so gotta switch it over
+            AeadTool.InitAeadTool();
+
             PcapParser.PcapParser.Instance.Parse("all_mainmenu_packets.json");
+
+            // after pcap parse switch it back, this should rlly be done inside PcapParser.Parse()
+            AeadTool.clientType = real_client_type;
+            AeadTool.InitAeadTool();
 
             PlayerInfo pcapPlayerInfo = (PlayerInfo)PcapParser.PcapParser.Instance.GetPcapPacket(NetMsgId.player_data_succeed_ack);
 

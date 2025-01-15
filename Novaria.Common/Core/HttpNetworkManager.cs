@@ -27,7 +27,7 @@ namespace Novaria.Common.Core
             byte[] packetData = ((MemoryStream)packetWriter.BaseStream).ToArray();
             Span<byte> encryptedPacketData = (new byte[packetData.Length + 16]).AsSpan();
 
-            AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.FIRST_IKE_KEY, AeadTool.PS_REQUEST_NONCE, packetData, false);
+            AeadTool.Encrypt(encryptedPacketData, AeadTool.IKE_KEY, AeadTool.PS_REQUEST_NONCE, packetData, false);
 
             BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());
             rawResponseWriter.Write(AeadTool.PS_REQUEST_NONCE);
@@ -88,7 +88,7 @@ namespace Novaria.Common.Core
             byte[] packetData = ((MemoryStream)packetWriter.BaseStream).ToArray();
             Span<byte> encryptedPacketData = (new byte[packetData.Length + 16]).AsSpan();
 
-            AeadTool.Encrypt_ChaCha20(encryptedPacketData, AeadTool.key3, AeadTool.PS_REQUEST_NONCE, packetData, false);
+            AeadTool.Encrypt(encryptedPacketData, AeadTool.key3, AeadTool.PS_REQUEST_NONCE, packetData, false);
 
             BinaryWriter rawResponseWriter = new BinaryWriter(new MemoryStream());
             rawResponseWriter.Write(AeadTool.PS_REQUEST_NONCE);
@@ -121,7 +121,7 @@ namespace Novaria.Common.Core
             Span<byte> nonce = nonceBytes.AsSpan();
             Span<byte> packet_data = packetBytes.AsSpan();
 
-            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.key3, nonce, packet_data, null);
+            bool success = AeadTool.Decrypt(decrypt_result, AeadTool.key3, nonce, packet_data, null);
 
             if (!success)
             {
@@ -179,7 +179,7 @@ namespace Novaria.Common.Core
             Span<byte> nonce = nonceBytes.AsSpan();
             Span<byte> packet_data = packetBytes.AsSpan();
 
-            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.key3, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
+            bool success = AeadTool.Decrypt(decrypt_result, AeadTool.key3, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
 
             if (!success)
             {
@@ -223,6 +223,8 @@ namespace Novaria.Common.Core
                 packetSize--; // skip in payload
             }
 
+            Console.WriteLine("aeadbyte: " + aeadBytes[0]);
+
             byte[] packetBytes = new byte[packetSize];
             reader.Read(packetBytes);
 
@@ -241,9 +243,18 @@ namespace Novaria.Common.Core
             byte[] associateData = new byte[13]; // this is needed for req decrypt (size: nonce(12) + 1)
 
             nonceBytes.CopyTo(associateData, 0); // associateData: [nonce, 1], 1 means AesGcm not supported
-            associateData[associateData.Length - 1] = 1;
 
-            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.FIRST_IKE_KEY, nonce, packet_data, associateData);
+            if (AeadTool.clientType == ClientType.PC)
+            {
+                associateData[associateData.Length - 1] = 0;
+            }
+
+            else
+            {
+                associateData[associateData.Length - 1] = 1;
+            }
+
+            bool success = AeadTool.Decrypt(decrypt_result, AeadTool.IKE_KEY, nonce, packet_data, associateData);
 
             if (!success)
             {
@@ -303,7 +314,7 @@ namespace Novaria.Common.Core
             Span<byte> nonce = nonceBytes.AsSpan();
             Span<byte> packet_data = packetBytes.AsSpan();
 
-            bool success = AeadTool.Dencrypt_ChaCha20(decrypt_result, AeadTool.FIRST_IKE_KEY, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
+            bool success = AeadTool.Decrypt(decrypt_result, AeadTool.IKE_KEY, nonce, packet_data, null); // associateData NULL FOR THIS response pcap 
 
             if (!success)
             {
