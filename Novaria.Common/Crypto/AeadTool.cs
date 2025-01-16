@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Mono.Math;
+using Mono.Security.Cryptography;
 using NSec.Cryptography;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
@@ -24,7 +26,7 @@ namespace Novaria.Common.Crypto
         public static readonly int IVSize = 16;
 
         public static byte[] PS_REQUEST_NONCE = new byte[12]; // hardcoded nonce, probably makes it easier for server idk? could also just randomly generate but me lazy
-        public static byte[] PS_PUBLIC_KEY { get => DiffieHellman.Instance.ServerPublicKey.ToByteArray(); }
+        //public static byte[] PS_PUBLIC_KEY { get => DiffieHellman.Instance.ServerPublicKey.GetBytes(); }
         public static string TOKEN = "seggs"; // hardcoded for now
 
         public static readonly byte[] DEFAULT_SERVERLIST_KEY = new byte[] { 74, 72, 42, 67, 80, 51, 50, 57, 89, 120, 111, 103, 81, 74, 69, 120 };
@@ -34,8 +36,9 @@ namespace Novaria.Common.Crypto
 
         public static readonly byte[] IKE_KEY = Encoding.ASCII.GetBytes("3LS9&oYdsp^5wi8&ZxC#c7MZg73hbEDw");
 
+        private static DiffieHellmanManaged SendKey;
+        private static BigInteger p = BigInteger.Parse("1552518092300708935130918131258481755631334049434514313202351194902966239949102107258669453876591642442910007680288864229150803718918046342632727613031282983744380820890196288509170691316593175367469551763119843371637221007210577919");
         private static GcmBlockCipher cipher;
-
         private static AesEngine engine;
 
         public delegate void AeadEncryptHandler(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data, bool needAssociatedData);
@@ -57,6 +60,25 @@ namespace Novaria.Common.Crypto
             PS_REQUEST_NONCE[11] = 42;
 
             InitAeadTool();
+            InitDH();
+        }
+
+        private static int InitDH()
+        {
+            int nRandom = 1;
+            byte[] bytes = BitConverter.GetBytes(2);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse<byte>(bytes);
+            }
+            byte[] bytes2 = BitConverter.GetBytes(nRandom);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse<byte>(bytes2);
+            }
+
+            SendKey = new DiffieHellmanManaged(p.GetBytes(), bytes, bytes2);
+            return nRandom;
         }
 
         public static void InitAeadTool()
@@ -82,6 +104,24 @@ namespace Novaria.Common.Crypto
         {
             AeadTool.engine = new AesEngine();
             AeadTool.cipher = new GcmBlockCipher(AeadTool.engine);
+        }
+
+        public static void SetAeadKey(byte[] pubKey)
+        {
+            byte[] array = SendKey.DecryptKeyExchange(pubKey);
+
+            int num = array.Length;
+            if (num > 32)
+            {
+                num = 32;
+            }
+            key3 = new byte[32];
+            Buffer.BlockCopy(array, 0, key3, 0, num);
+        }
+
+        public static byte[] GetPubKey()
+        {
+            return new BigInteger(SendKey.CreateKeyExchange()).GetBytes();
         }
 
         private static void Encrypt_AESGCM_BouncyCastle(Span<byte> result, ReadOnlySpan<byte> key, ReadOnlySpan<byte> nonce, ReadOnlySpan<byte> data, bool needAssociatedData)

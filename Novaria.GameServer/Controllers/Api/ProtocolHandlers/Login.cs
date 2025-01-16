@@ -52,20 +52,6 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
             accountInfo.Newbies.Add(new NewbieInfo() { GroupId = 101, StepId = -1 });
             accountInfo.Newbies.Add(new NewbieInfo() { GroupId = 102, StepId = -1 });
 
-
-            byte[] real_key = AeadTool.key3;
-            ClientType real_client_type = AeadTool.clientType;
-
-            // load from pcap
-            AeadTool.clientType = ClientType.Mobile; // my pcap were from mobile so gotta switch it over
-            AeadTool.InitAeadTool();
-
-            PcapParser.PcapParser.Instance.Parse("all_mainmenu_packets.json");
-
-            // after pcap parse switch it back, this should rlly be done inside PcapParser.Parse()
-            AeadTool.clientType = real_client_type;
-            AeadTool.InitAeadTool();
-
             PlayerInfo pcapPlayerInfo = (PlayerInfo)PcapParser.PcapParser.Instance.GetPcapPacket(NetMsgId.player_data_succeed_ack);
 
             PlayerInfo playerInfoResponse = new PlayerInfo()
@@ -73,7 +59,6 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
                 Acc = pcapPlayerInfo.Acc
             };
 
-            AeadTool.key3 = real_key;
             Log.Information("Sending player_new_notify packet: " + JsonSerializer.Serialize(pcapPlayerInfo));
             return Packet.Create(NetMsgId.player_data_succeed_ack, pcapPlayerInfo);
         }

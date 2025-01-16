@@ -113,18 +113,28 @@ namespace Novaria.GameServer.Controllers.Api
             Log.Information("RECEIVED client public key: ");
             Utils.PrintByteArray(clientPublicKey);
 
-            AeadTool.key3 = DiffieHellman.Instance.CalculateKey(clientPublicKey);
+            Console.WriteLine("OLD::");
+
+            Console.WriteLine(new System.Numerics.BigInteger(clientPublicKey.Reverse().ToArray()));
+
+            Console.WriteLine("OLD::");
+
+            //AeadTool.key3 = DiffieHellman.Instance.CalculateKey(clientPublicKey);
+            AeadTool.SetAeadKey(clientPublicKey);
             Log.Information("KEY3 (chacha20 key) calculated: ");
             Utils.PrintByteArray(AeadTool.key3);
 
+            byte[] pubKey = AeadTool.GetPubKey();
+
             IKEResp ikeResponse = new IKEResp()
             {
-                PubKey = ByteString.CopyFrom(AeadTool.PS_PUBLIC_KEY.Reverse().ToArray()),
+                //PubKey = ByteString.CopyFrom(AeadTool.PS_PUBLIC_KEY.Reverse().ToArray()),
+                PubKey = ByteString.CopyFrom(pubKey),
                 Token = AeadTool.TOKEN
             };
 
             Log.Information("Sending ps server public key: ");
-            Utils.PrintByteArray(AeadTool.PS_PUBLIC_KEY);
+            Utils.PrintByteArray(pubKey);
 
             Packet ikePacket = new Packet()
             {

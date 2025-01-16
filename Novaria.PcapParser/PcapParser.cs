@@ -19,6 +19,29 @@ namespace Novaria.PcapParser
         public int totalPacketsCount = 0;
         public List<NovaPacket> packets = new List<NovaPacket>();
 
+        public void LoadAllPackets()
+        {
+            byte[] real_key = AeadTool.key3;
+            ClientType real_client_type = AeadTool.clientType;
+
+            // load from pcap
+            AeadTool.clientType = ClientType.Mobile; // my pcap were from mobile so gotta switch it over
+            AeadTool.InitAeadTool();
+
+            // these are all the packets i have, should've done more but ran out of time :/
+            PcapParser.Instance.Parse("all_mainmenu_packets.json");
+            PcapParser.Instance.Parse("accidently_too_many.json");
+            PcapParser.Instance.Parse("create_acc_packets.json");
+            PcapParser.Instance.Parse("first_instant_join.json");
+            PcapParser.Instance.Parse("full_everything.json");
+            PcapParser.Instance.Parse("lvl30_tutorials.json");
+
+            // after pcap parse switch it back
+            AeadTool.clientType = real_client_type;
+            AeadTool.InitAeadTool();
+            AeadTool.key3 = real_key;
+        }
+
         public void Parse(string pcapFileName, bool auto_key = true)
         {
             string pcapJsonFile = File.ReadAllText($"../../../../Novaria.PcapParser/{pcapFileName}"); // disgusting pathing, but "not hardcoded" now ig

@@ -10,6 +10,8 @@ namespace Novaria.GameServer
     {
         public static void Main(string[] args)
         {
+            PcapParser.PcapParser.Instance.LoadAllPackets(); // turn this off after real handlers are finished
+
             Log.Information("Starting SDK Server...");
             try
             {

@@ -4,9 +4,9 @@
     {
         public static void Main(string[] args)
         {
-            PcapParser.Instance.Parse("all_mainmenu_packets.json");
+            PcapParser.Instance.LoadAllPackets();
 
-            PcapParser.Instance.SavePackets("parsed_packets.json");
+            PcapParser.Instance.SavePackets("all_parsed_packets.json");
         }
     }
 }
