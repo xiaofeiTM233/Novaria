@@ -16,9 +16,9 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         {
             Mails mailListResp = (Mails)PcapParser.PcapParser.Instance.GetPcapPacket(NetMsgId.mail_list_succeed_ack);
 
-            mailListResp.List[0].Subject = "夏萝莉是小楠梁";
-            mailListResp.List[1].Subject = "夏萝莉是小楠梁";
-            mailListResp.List[2].Subject = "夏萝莉是小楠梁";
+            mailListResp.List[0].Subject = "seggs";
+            mailListResp.List[1].Subject = "seggs";
+            mailListResp.List[2].Subject = "seggs";
 
             return Packet.Create(NetMsgId.mail_list_succeed_ack, mailListResp);
         }

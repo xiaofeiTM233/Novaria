@@ -1,0 +1,1 @@
+mitmweb -k -m wireguard --set block_global=false --mode local -s .\update.py

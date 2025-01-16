@@ -2,12 +2,25 @@
 using Serilog;
 
 // rest of the random as packets during sdk
-namespace Novaria.GameServer.CoNovariaollers
+namespace Novaria.GameServer.Controllers
 {
     [ApiController]
     [Route("/")]
     public class SDKController : ControllerBase
     {
+        [HttpPost("user/oauth2/v2/grant")]
+        public IResult OAuthGrant()
+        {
+            return Results.Content(
+@"
+{
+    ""msg"": ""夏萝莉是小楠梁"",
+    ""status"": 106,
+    ""type"": ""A""
+}",
+"application/json"
+);
+        }
         [Route("")]
         public IResult GetNothing()
         {
@@ -267,6 +280,17 @@ namespace Novaria.GameServer.CoNovariaollers
         ""ts"": 1736783033783
     },
     ""msg"": ""OK""
+}
+");
+        }
+
+        [Route("common/client-code")]
+        public IResult PostClientCode()
+        {
+            return Results.Text(@"
+{
+    ""Code"": 200,
+    ""Msg"": ""OK""
 }
 ");
         }

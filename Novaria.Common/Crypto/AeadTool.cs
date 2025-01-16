@@ -4,6 +4,7 @@ using System.Text;
 using NSec.Cryptography;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
+using Org.BouncyCastle.Crypto.Paddings;
 using Org.BouncyCastle.Crypto.Parameters;
 
 namespace Novaria.Common.Crypto
@@ -28,6 +29,8 @@ namespace Novaria.Common.Crypto
 
         public static readonly byte[] DEFAULT_SERVERLIST_KEY = new byte[] { 74, 72, 42, 67, 80, 51, 50, 57, 89, 120, 111, 103, 81, 74, 69, 120 };
         public static readonly byte[] DEFAULT_SERVERLIST_IV = new byte[] { 225, 92, 61, 72, 193, 89, 3, 64, 50, 61, 50, 145, 59, 128, 99, 72 };
+        public static readonly byte[] DEFAULT_AND_IV = new byte[] { 105, 7, 110, 72, 167, 117, 102, 212, 150, 44, 52, 229, 65, 61, 204, 205 };
+        public static readonly byte[] DEFAULT_WIN_IV = new byte[] { 144, 129, 81, 233, 8, 4, 33, 39, 106, 181, 229, 64, 68, 134, 31, 107 };
 
         public static readonly byte[] IKE_KEY = Encoding.ASCII.GetBytes("3LS9&oYdsp^5wi8&ZxC#c7MZg73hbEDw");
 
@@ -150,18 +153,13 @@ namespace Novaria.Common.Crypto
         // probably wrong
         public static byte[] DecryptAesCBCInfo(byte[] key, byte[] IV, byte[] cipherBytes)
         {
-            using (Aes aes = Aes.Create())
-            {
-                aes.Key = key;
-                aes.IV = IV;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-
-                using (ICryptoTransform decryptor = aes.CreateDecryptor())
-                {
-                    return decryptor.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
-                }
-            }
+            PaddedBufferedBlockCipher paddedBufferedBlockCipher = new PaddedBufferedBlockCipher(new CbcBlockCipher(new AesEngine()), new Pkcs7Padding());
+            ParametersWithIV parametersWithIV = new ParametersWithIV(new KeyParameter(key), IV);
+            paddedBufferedBlockCipher.Init(false, parametersWithIV);
+            byte[] array = new byte[paddedBufferedBlockCipher.GetOutputSize(cipherBytes.Length)];
+            int num = paddedBufferedBlockCipher.ProcessBytes(cipherBytes, array, 0);
+            paddedBufferedBlockCipher.DoFinal(array, num);
+            return array;
         }
 
         public static byte[] EncryptAesCBCInfo(byte[] key, byte[] IV, byte[] plainBytes)

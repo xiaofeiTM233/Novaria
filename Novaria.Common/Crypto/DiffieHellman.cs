@@ -15,6 +15,7 @@ namespace Novaria.Common.Crypto
 
         public DiffieHellman()
         {
+            Console.WriteLine(spriv);
             //g** Spriv mod p
             ServerPublicKey = BigInteger.ModPow(g, spriv, p);
         }

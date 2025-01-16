@@ -12,7 +12,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         }
 
         [ProtocolHandler(NetMsgId.resident_shop_get_req)] // req id goes here
-        public Packet PlayerLoginHandler(ResidentShopGetReq req)
+        public Packet ResidentShopGetHandler(ResidentShopGetReq req)
         {
             ResidentShopGetResp resp = new ResidentShopGetResp();
 

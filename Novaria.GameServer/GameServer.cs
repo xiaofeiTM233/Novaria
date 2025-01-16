@@ -1,17 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Novaria.Common.Crypto;
-using Novaria.Common.Core;
-using Proto;
 using Serilog;
 
 using Novaria.GameServer.Controllers.Api.ProtocolHandlers;
-using Novaria.Common.Util;
-using System.Numerics;
-using Microsoft.AspNetCore.DataProtection;
-using System.Text;
-using System.Text.Json;
-using Nova.Client;
 
 namespace Novaria.GameServer
 {

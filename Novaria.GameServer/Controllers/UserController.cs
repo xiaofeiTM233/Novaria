@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
-namespace Novaria.GameServer.CoNovariaollers
+namespace Novaria.GameServer.Controllers
 {
     [ApiController]
     [Route("/user")]
