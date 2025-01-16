@@ -1,4 +1,5 @@
 # Novaria
+### [中文教程](README_CHS.md) (by KitanoSakura)
 
 # Client Installation Tutorial
 ## PC (highly recommended, one click install)
