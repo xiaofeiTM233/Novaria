@@ -11,7 +11,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         }
 
         [ProtocolHandler(NetMsgId.star_tower_info_req)] // req id goes here
-        public Packet PlayerLoginHandler(Nil req)
+        public Packet StarTowerInfoHandler(Nil req)
         {
             StarTowerInfo towerResp = new();
             

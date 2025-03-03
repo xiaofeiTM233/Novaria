@@ -18,16 +18,16 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         [ProtocolHandler(NetMsgId.player_login_req)] // req id goes here
         public Packet PlayerLoginHandler(LoginReq req)
         {
-            Log.Information("login_req received, contents: " + JsonSerializer.Serialize(req));
+            //Log.Information("login_req received, contents: " + JsonSerializer.Serialize(req));
 
-            Log.Information("Building login resp...");
+            //Log.Information("Building login resp...");
 
             LoginResp loginResp = new LoginResp()
             {
                 Token = "seggstoken",
             };
 
-            Log.Information("Sending login_resp packet: " + JsonSerializer.Serialize(loginResp));
+            //Log.Information("Sending login_resp packet: " + JsonSerializer.Serialize(loginResp));
             return Packet.Create(NetMsgId.player_login_succeed_ack, loginResp);
         }
 
@@ -621,7 +621,7 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
         {
             return Packet.Create(NetMsgId.player_ping_succeed_ack, new Pong()
             {
-                ServerTs = DateTime.Now.Ticks,
+                ServerTs = 1736745112,
             });
         }
 
