@@ -1,0 +1,1 @@
+mitmweb -k -m wireguard --set stream_large_bodies=3m --set block_global=false --mode local:nova.exe -s .\proxy2.py

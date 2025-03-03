@@ -44,7 +44,7 @@ namespace Novaria.PcapParser
 
         public void Parse(string pcapFileName, bool auto_key = true)
         {
-            string pcapJsonFile = File.ReadAllText($"../../../../Novaria.PcapParser/{pcapFileName}"); // disgusting pathing, but "not hardcoded" now ig
+            string pcapJsonFile = File.ReadAllText($"../Novaria.PcapParser/{pcapFileName}"); // disgusting pathing, but "not hardcoded" now ig
             var data = System.Text.Json.JsonSerializer.Deserialize<List<PcapPacket>>(pcapJsonFile);
 
             foreach (PcapPacket packet in data)
