@@ -4,6 +4,9 @@ using Serilog;
 
 using Novaria.GameServer.Controllers.Api.ProtocolHandlers;
 using Novaria.Common.Crypto;
+using Novaria.Common.Util;
+using Newtonsoft.Json;
+using Novaria.GameServer.Services;
 
 namespace Novaria.GameServer
 {
@@ -12,19 +15,6 @@ namespace Novaria.GameServer
         public static void Main(string[] args)
         {
             PcapParser.PcapParser.Instance.LoadAllPackets(); // turn this off after real handlers are finished
-            
-            // IDK how to dump
-            /*Log.Warning("Dumping Data.....");
-            var tables = Assembly.GetExecutingAssembly()
-                .GetTypes()
-                .Where(t => t.Name.StartsWith("table_"));
-
-            foreach (var file in Directory.GetFiles("../Novaria.Common/dataBin/"))
-            {
-                Log.Information(file);
-                var data = new GameDataExtraction().LoadCommonBinData(file);
-                Log.Information(data.ToString());
-            }*/
 
             Log.Information("Starting SDK Server...");
             try
@@ -38,6 +28,7 @@ namespace Novaria.GameServer
 
                 builder.Services.AddControllers();
                 builder.Services.AddProtocolHandlerFactory();
+                builder.Services.AddExcelTableService();
                 builder.Services.AddControllers().AddApplicationPart(Assembly.GetAssembly(typeof(GameServer)));
 
                 // Add all Handler Groups

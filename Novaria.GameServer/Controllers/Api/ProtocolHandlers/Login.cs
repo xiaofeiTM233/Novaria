@@ -5,14 +5,34 @@ using Serilog;
 using System.Text.Json;
 using Novaria.PcapParser;
 using Novaria.Common.Crypto;
+using Novaria.GameServer.Services;
+using Nova.Client;
 
 namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
 {
     public class Login : ProtocolHandlerBase
     {
-        public Login(IProtocolHandlerFactory protocolHandlerFactory) : base(protocolHandlerFactory)
+        public Login(IProtocolHandlerFactory protocolHandlerFactory, TableService tableService) : base(protocolHandlerFactory)
         {
+            table_Achievement achievements = (table_Achievement)tableService.GetTable<Nova.Client.Achievement>();
+        }
 
+        [ProtocolHandler(NetMsgId.gacha_information_req)]
+        public Packet PlayerLoginHandler(Nil req)
+        {
+            GachaInformationResp gachaInfoResp = new GachaInformationResp()
+            {
+                Information =
+                {
+                  new GachaInfo()
+                  {
+                      Id = 1,
+                      DaysCount = 31,
+                  }
+                },
+            };
+
+            return Packet.Create(NetMsgId.gacha_information_req, gachaInfoResp);
         }
 
         [ProtocolHandler(NetMsgId.player_login_req)] // req id goes here
@@ -62,519 +82,519 @@ namespace Novaria.GameServer.Controllers.Api.ProtocolHandlers
             {
                 Acc = accountInfo
             };
-            playerInfoResponse.Chars.AddRange(
-                [
-                    new Proto.Char()
-                    {
-                        Tid = 111,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11101,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[0].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 117,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11701,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[1].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 108,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 10801,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[2].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 123,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 12301,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[3].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 127,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 12701,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[4].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 107,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 10701,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[5].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 132,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 13201,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[6].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 135,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 13501,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[7].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 126,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 12601,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[8].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 118,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11801,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[9].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 142,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 14201,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[10].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 119,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11901,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[11].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 103,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 10301,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[12].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 125,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 12501,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[13].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 120,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 12001,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[14].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 112,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11201,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[15].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                    new Proto.Char()
-                    {
-                        Tid = 113,
-                        Exp = 0,
-                        DatingLandmarkIds = [],
-                        DatingEventIds = [],
-                        DatingEventRewardIds = [],
-                        EquipmentIds = [
-                            0,
-                            0,
-                            0
-                        ],
-                        Level = 90,
-                        SkillLvs = [
-                            10,
-                            10,
-                            10,
-                            10,
-                            1
-                        ],
-                        Skin = 11301,
-                        AffinityLevel = 20,
-                        AffinityExp = 0,
-                        Advance = 8,
-                        Plots = [],
-                        AffinityQuests = pcapPlayerInfo.Chars[16].AffinityQuests,
-                        TalentNodes = ByteString.Empty,
-                        CreateTime = 1736745112,
-                        NextPackage = ByteString.Empty
-                    },
-                ]);
+            //playerInfoResponse.Chars.AddRange(
+                //[
+                //    new Proto.Char()
+                //    {
+                //        Tid = 111,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11101,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[0].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 117,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11701,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[1].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 108,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 10801,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[2].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 123,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 12301,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[3].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 127,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 12701,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[4].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 107,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 10701,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[5].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 132,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 13201,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[6].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 135,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 13501,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[7].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 126,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 12601,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[8].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 118,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11801,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[9].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 142,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 14201,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[10].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 119,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11901,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[11].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 103,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 10301,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[12].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 125,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 12501,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[13].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 120,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 12001,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[14].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 112,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11201,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[15].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //    new Proto.Char()
+                //    {
+                //        Tid = 113,
+                //        Exp = 0,
+                //        DatingLandmarkIds = [],
+                //        DatingEventIds = [],
+                //        DatingEventRewardIds = [],
+                //        EquipmentIds = [
+                //            0,
+                //            0,
+                //            0
+                //        ],
+                //        Level = 90,
+                //        SkillLvs = [
+                //            10,
+                //            10,
+                //            10,
+                //            10,
+                //            1
+                //        ],
+                //        Skin = 11301,
+                //        AffinityLevel = 20,
+                //        AffinityExp = 0,
+                //        Advance = 8,
+                //        Plots = [],
+                //        AffinityQuests = pcapPlayerInfo.Chars[16].AffinityQuests,
+                //        TalentNodes = ByteString.Empty,
+                //        CreateTime = 1736745112,
+                //        NextPackage = ByteString.Empty
+                //    },
+                //]);
             playerInfoResponse.Res.AddRange(pcapPlayerInfo.Res);
             playerInfoResponse.Items.AddRange(pcapPlayerInfo.Items);
             playerInfoResponse.Formation = pcapPlayerInfo.Formation;
